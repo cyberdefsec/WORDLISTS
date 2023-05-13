@@ -5,13 +5,16 @@
 .bz2
 .bzip2
 .c
+.cpp
 .cfm
 .cgi
 .com
 .dll
 .dhtml
 .dist
+.deb
 .exe
+.h
 .htm
 .html
 .inc
@@ -20,6 +23,7 @@
 .js
 .jsa
 .jsp
+.jar
 .log
 .mdb
 .nsf
@@ -28,8 +32,11 @@
 .php
 .phps
 .pl
+.py
+.pyc
 .reg
 .rar
+.rpm
 .shtml
 .sh
 .sql
