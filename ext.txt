@@ -1,7 +1,7 @@
 .asp
 .aspx
 .bat
-.bck
+.bak
 .bz2
 .bzip2
 .c
