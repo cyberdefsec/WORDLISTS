@@ -27,7 +27,7 @@ username[$ne]=toto&password[$regex]=.{1}
 username[$ne]=toto&password[$ne]=toto
 username[$ne]=admin&pass[$lt]=s
 username[$ne]=admin&pass[$gt]=s
-username[$ne]=1&$password[$ne]=1
+username[$ne]=1$password[$ne]=1
 username[$exists]=true&password[$exists]=true
 username[$eq]=admin&password[$ne]=1
 true, $where: '1 == 1'
