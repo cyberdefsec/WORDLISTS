@@ -82,3 +82,6 @@
 .xls
 .xml
 .zip
+.png
+.jpg
+.jpeg
