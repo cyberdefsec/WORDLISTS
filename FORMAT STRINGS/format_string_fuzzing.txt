@@ -1,18 +1,159 @@
 %d
+%n
+%p
+%s
+%u
+%x
 %d%d
-%d%d%d
+%n%n
+%p%p
+%s%s
+%u%u
+%x%x
+%1$d
+%1$n
+%1$p
+%1$s
+%1$u
+%1$x
+%2$d
+%2$n
+%2$p
+%2$s
+%2$u
+%2$x
+%3$d
+%3$n
+%3$p
+%3$s
+%3$u
+%3$x
+%4$d
+%4$n
+%4$p
+%4$s
+%4$u
+%4$x
+%5$d
+%5$n
+%5$p
+%5$s
+%5$u
+%5$x
+%6$d
+%6$n
+%6$p
+%6$s
+%6$u
+%6$x
+%7$d
+%7$n
+%7$p
+%7$s
+%7$u
+%7$x
+%8$d
+%8$n
+%8$p
+%8$s
+%8$u
+%8$x
+%9$d
+%9$n
+%9$p
+%9$s
+%9$u
+%9$x
+%10$d
+%10$n
+%10$p
+%10$s
+%10$u
+%10$x
+%x * 8%d%d%d
+%n%n%n
+%p%p%p
+%s%s%s
+%u%u%u
+%x%x%x
+%d * 2
+%d * 4
+%d * 8
+%n * 2
+%n * 4
+%n * 8
+%p * 2
+%p * 4
+%p * 8
+%s * 2
+%s * 4
+%s * 8
+%u * 2
+%u * 4
+%u * 8
+%x * 2
+%x * 4
+%d * 16
+%d * 24
+%d * 32
+%d * 64
+%n * 16
+%n * 24
+%n * 32
+%n * 64
+%p * 16
+%p * 24
+%p * 32
+%p * 64
+%s * 16
+%s * 24
+%s * 32
+%s * 64
+%u * 16
+%u * 24
+%u * 32
+%u * 64
+%x * 16
+%x * 24
+%x * 32
+%x * 64
 %d%d%d%d
+%n%n%n%n
+%p%p%p%p
+%s%s%s%s
+%u%u%u%u
+%x%x%x%x
+%d * 128
+%d * 256
+%d * 512
+%n * 128
+%n * 256
+%n * 512
+%p * 128
+%p * 256
+%p * 512
+%s * 128
+%s * 256
+%s * 512
+%u * 128
+%u * 256
+%u * 512
+%x * 128
+%x * 256
+%x * 512
+%d * 1024
+%n * 1024
+%p * 1024
+%s * 1024
+%u * 1024
+%x * 1024
 %d%d%d%d%d
+%n%n%n%n%n
+%p%p%p%p%p
+%s%s%s%s%s
+%u%u%u%u%u
+%x%x%x%x%x
 %d%d%d%d%d%d
-%d%d%d%d%d%d%d
-%d%d%d%d%d%d%d%d
-%d%d%d%d%d%d%d%d%d
-%d%d%d%d%d%d%d%d%d%d
-%d%d%d%d%d%d%d%d%d%d%d
-%d%d%d%d%d%d%d%d%d%d%d%d
-%d%d%d%d%d%d%d%d%d%d%d%d%d
-%d%d%d%d%d%d%d%d%d%d%d%d%d%d
-%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d
 %d%d%d%d%d%n
 %d%d%d%d%d%p
 %d%d%d%d%d%s
@@ -3137,7 +3278,6 @@
 %d%u%u%u%u%p
 %d%u%u%u%u%s
 %d%u%u%u%u%u
-%n
 %n%d%d%d%d%d
 %n%d%d%d%d%n
 %n%d%d%d%d%p
@@ -3763,7 +3903,6 @@
 %n%d%u%u%u%p
 %n%d%u%u%u%s
 %n%d%u%u%u%u
-%n%n
 %n%n%d%d%d%d
 %n%n%d%d%d%n
 %n%n%d%d%d%p
@@ -3889,7 +4028,6 @@
 %n%n%d%u%u%p
 %n%n%d%u%u%s
 %n%n%d%u%u%u
-%n%n%n
 %n%n%n%d%d%d
 %n%n%n%d%d%n
 %n%n%n%d%d%p
@@ -3915,24 +4053,13 @@
 %n%n%n%d%u%p
 %n%n%n%d%u%s
 %n%n%n%d%u%u
-%n%n%n%n
 %n%n%n%n%d%d
 %n%n%n%n%d%n
 %n%n%n%n%d%p
 %n%n%n%n%d%s
 %n%n%n%n%d%u
-%n%n%n%n%n
 %n%n%n%n%n%d
 %n%n%n%n%n%n
-%n%n%n%n%n%n%n
-%n%n%n%n%n%n%n%n
-%n%n%n%n%n%n%n%n%n
-%n%n%n%n%n%n%n%n%n%n
-%n%n%n%n%n%n%n%n%n%n%n
-%n%n%n%n%n%n%n%n%n%n%n%n
-%n%n%n%n%n%n%n%n%n%n%n%n%n
-%n%n%n%n%n%n%n%n%n%n%n%n%n%n
-%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n
 %n%n%n%n%n%p
 %n%n%n%n%n%s
 %n%n%n%n%n%u
@@ -6276,7 +6403,6 @@
 %n%u%u%u%u%p
 %n%u%u%u%u%s
 %n%u%u%u%u%u
-%p
 %p%d%d%d%d%d
 %p%d%d%d%d%n
 %p%d%d%d%d%p
@@ -7527,7 +7653,6 @@
 %p%n%u%u%u%p
 %p%n%u%u%u%s
 %p%n%u%u%u%u
-%p%p
 %p%p%d%d%d%d
 %p%p%d%d%d%n
 %p%p%d%d%d%p
@@ -7778,7 +7903,6 @@
 %p%p%n%u%u%p
 %p%p%n%u%u%s
 %p%p%n%u%u%u
-%p%p%p
 %p%p%p%d%d%d
 %p%p%p%d%d%n
 %p%p%p%d%d%p
@@ -7829,7 +7953,6 @@
 %p%p%p%n%u%p
 %p%p%p%n%u%s
 %p%p%p%n%u%u
-%p%p%p%p
 %p%p%p%p%d%d
 %p%p%p%p%d%n
 %p%p%p%p%d%p
@@ -7840,19 +7963,9 @@
 %p%p%p%p%n%p
 %p%p%p%p%n%s
 %p%p%p%p%n%u
-%p%p%p%p%p
 %p%p%p%p%p%d
 %p%p%p%p%p%n
 %p%p%p%p%p%p
-%p%p%p%p%p%p%p
-%p%p%p%p%p%p%p%p
-%p%p%p%p%p%p%p%p%p
-%p%p%p%p%p%p%p%p%p%p
-%p%p%p%p%p%p%p%p%p%p%p
-%p%p%p%p%p%p%p%p%p%p%p%p
-%p%p%p%p%p%p%p%p%p%p%p%p%p
-%p%p%p%p%p%p%p%p%p%p%p%p%p%p
-%p%p%p%p%p%p%p%p%p%p%p%p%p%p%p
 %p%p%p%p%p%s
 %p%p%p%p%p%u
 %p%p%p%p%s%d
@@ -9415,7 +9528,6 @@
 %p%u%u%u%u%p
 %p%u%u%u%u%s
 %p%u%u%u%u%u
-%s
 %s%d%d%d%d%d
 %s%d%d%d%d%n
 %s%d%d%d%d%p
@@ -11291,7 +11403,6 @@
 %s%p%u%u%u%p
 %s%p%u%u%u%s
 %s%p%u%u%u%u
-%s%s
 %s%s%d%d%d%d
 %s%s%d%d%d%n
 %s%s%d%d%d%p
@@ -11667,7 +11778,6 @@
 %s%s%p%u%u%p
 %s%s%p%u%u%s
 %s%s%p%u%u%u
-%s%s%s
 %s%s%s%d%d%d
 %s%s%s%d%d%n
 %s%s%s%d%d%p
@@ -11743,7 +11853,6 @@
 %s%s%s%p%u%p
 %s%s%s%p%u%s
 %s%s%s%p%u%u
-%s%s%s%s
 %s%s%s%s%d%d
 %s%s%s%s%d%n
 %s%s%s%s%d%p
@@ -11759,20 +11868,10 @@
 %s%s%s%s%p%p
 %s%s%s%s%p%s
 %s%s%s%s%p%u
-%s%s%s%s%s
 %s%s%s%s%s%d
 %s%s%s%s%s%n
 %s%s%s%s%s%p
 %s%s%s%s%s%s
-%s%s%s%s%s%s%s
-%s%s%s%s%s%s%s%s
-%s%s%s%s%s%s%s%s%s
-%s%s%s%s%s%s%s%s%s%s
-%s%s%s%s%s%s%s%s%s%s%s
-%s%s%s%s%s%s%s%s%s%s%s%s
-%s%s%s%s%s%s%s%s%s%s%s%s%s
-%s%s%s%s%s%s%s%s%s%s%s%s%s%s
-%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s
 %s%s%s%s%s%u
 %s%s%s%s%u%d
 %s%s%s%s%u%n
@@ -12554,7 +12653,6 @@
 %s%u%u%u%u%p
 %s%u%u%u%u%s
 %s%u%u%u%u%u
-%u
 %u%d%d%d%d%d
 %u%d%d%d%d%n
 %u%d%d%d%d%p
@@ -15055,7 +15153,6 @@
 %u%s%u%u%u%p
 %u%s%u%u%u%s
 %u%s%u%u%u%u
-%u%u
 %u%u%d%d%d%d
 %u%u%d%d%d%n
 %u%u%d%d%d%p
@@ -15556,7 +15653,6 @@
 %u%u%s%u%u%p
 %u%u%s%u%u%s
 %u%u%s%u%u%u
-%u%u%u
 %u%u%u%d%d%d
 %u%u%u%d%d%n
 %u%u%u%d%d%p
@@ -15657,7 +15753,6 @@
 %u%u%u%s%u%p
 %u%u%u%s%u%s
 %u%u%u%s%u%u
-%u%u%u%u
 %u%u%u%u%d%d
 %u%u%u%u%d%n
 %u%u%u%u%d%p
@@ -15678,159 +15773,63 @@
 %u%u%u%u%s%p
 %u%u%u%u%s%s
 %u%u%u%u%s%u
-%u%u%u%u%u
 %u%u%u%u%u%d
 %u%u%u%u%u%n
 %u%u%u%u%u%p
 %u%u%u%u%u%s
 %u%u%u%u%u%u
-%u%u%u%u%u%u%u
-%u%u%u%u%u%u%u%u
-%u%u%u%u%u%u%u%u%u
-%u%u%u%u%u%u%u%u%u%u
-%u%u%u%u%u%u%u%u%u%u%u
-%u%u%u%u%u%u%u%u%u%u%u%u
-%u%u%u%u%u%u%u%u%u%u%u%u%u
-%u%u%u%u%u%u%u%u%u%u%u%u%u%u
-%u%u%u%u%u%u%u%u%u%u%u%u%u%u%u
-%x
-%x%x
-%x%x%x
-%x%x%x%x
-%x%x%x%x%x
 %x%x%x%x%x%x
+%d%d%d%d%d%d%d
+%n%n%n%n%n%n%n
+%p%p%p%p%p%p%p
+%s%s%s%s%s%s%s
+%u%u%u%u%u%u%u
 %x%x%x%x%x%x%x
+%d%d%d%d%d%d%d%d
+%n%n%n%n%n%n%n%n
+%p%p%p%p%p%p%p%p
+%s%s%s%s%s%s%s%s
+%u%u%u%u%u%u%u%u
 %x%x%x%x%x%x%x%x
+%d%d%d%d%d%d%d%d%d
+%n%n%n%n%n%n%n%n%n
+%p%p%p%p%p%p%p%p%p
+%s%s%s%s%s%s%s%s%s
+%u%u%u%u%u%u%u%u%u
 %x%x%x%x%x%x%x%x%x
+%d%d%d%d%d%d%d%d%d%d
+%n%n%n%n%n%n%n%n%n%n
+%p%p%p%p%p%p%p%p%p%p
+%s%s%s%s%s%s%s%s%s%s
+%u%u%u%u%u%u%u%u%u%u
 %x%x%x%x%x%x%x%x%x%x
+%d%d%d%d%d%d%d%d%d%d%d
+%n%n%n%n%n%n%n%n%n%n%n
+%p%p%p%p%p%p%p%p%p%p%p
+%s%s%s%s%s%s%s%s%s%s%s
+%u%u%u%u%u%u%u%u%u%u%u
 %x%x%x%x%x%x%x%x%x%x%x
+%d%d%d%d%d%d%d%d%d%d%d%d
+%n%n%n%n%n%n%n%n%n%n%n%n
+%p%p%p%p%p%p%p%p%p%p%p%p
+%s%s%s%s%s%s%s%s%s%s%s%s
+%u%u%u%u%u%u%u%u%u%u%u%u
 %x%x%x%x%x%x%x%x%x%x%x%x
+%d%d%d%d%d%d%d%d%d%d%d%d%d
+%n%n%n%n%n%n%n%n%n%n%n%n%n
+%p%p%p%p%p%p%p%p%p%p%p%p%p
+%s%s%s%s%s%s%s%s%s%s%s%s%s
+%u%u%u%u%u%u%u%u%u%u%u%u%u
 %x%x%x%x%x%x%x%x%x%x%x%x%x
+%d%d%d%d%d%d%d%d%d%d%d%d%d%d
+%n%n%n%n%n%n%n%n%n%n%n%n%n%n
+%p%p%p%p%p%p%p%p%p%p%p%p%p%p
+%s%s%s%s%s%s%s%s%s%s%s%s%s%s
+%u%u%u%u%u%u%u%u%u%u%u%u%u%u
 %x%x%x%x%x%x%x%x%x%x%x%x%x%x
+%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d
+%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n
+%p%p%p%p%p%p%p%p%p%p%p%p%p%p%p
+%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s
+%u%u%u%u%u%u%u%u%u%u%u%u%u%u%u
 %x%x%x%x%x%x%x%x%x%x%x%x%x%x%x
-%1$d
-%1$n
-%1$p
-%1$s
-%1$u
-%1$x
-%10$d
-%10$n
-%10$p
-%10$s
-%10$u
-%10$x
-%2$d
-%2$n
-%2$p
-%2$s
-%2$u
-%2$x
-%3$d
-%3$n
-%3$p
-%3$s
-%3$u
-%3$x
-%4$d
-%4$n
-%4$p
-%4$s
-%4$u
-%4$x
-%5$d
-%5$n
-%5$p
-%5$s
-%5$u
-%5$x
-%6$d
-%6$n
-%6$p
-%6$s
-%6$u
-%6$x
-%7$d
-%7$n
-%7$p
-%7$s
-%7$u
-%7$x
-%8$d
-%8$n
-%8$p
-%8$s
-%8$u
-%8$x
-%9$d
-%9$n
-%9$p
-%9$s
-%9$u
-%9$x
-%d * 1024
-%d * 128
-%d * 16
-%d * 2
-%d * 24
-%d * 256
-%d * 32
-%d * 4
-%d * 512
-%d * 64
-%d * 8
-%n * 1024
-%n * 128
-%n * 16
-%n * 2
-%n * 24
-%n * 256
-%n * 32
-%n * 4
-%n * 512
-%n * 64
-%n * 8
-%p * 1024
-%p * 128
-%p * 16
-%p * 2
-%p * 24
-%p * 256
-%p * 32
-%p * 4
-%p * 512
-%p * 64
-%p * 8
-%s * 1024
-%s * 128
-%s * 16
-%s * 2
-%s * 24
-%s * 256
-%s * 32
-%s * 4
-%s * 512
-%s * 64
-%s * 8
-%u * 1024
-%u * 128
-%u * 16
-%u * 2
-%u * 24
-%u * 256
-%u * 32
-%u * 4
-%u * 512
-%u * 64
-%u * 8
-%x * 1024
-%x * 128
-%x * 16
-%x * 2
-%x * 24
-%x * 256
-%x * 32
-%x * 4
-%x * 512
-%x * 64
-%x * 8
