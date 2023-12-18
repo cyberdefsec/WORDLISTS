@@ -51,10 +51,14 @@ admin)(!(&(|
 admin)(&)
 admin))(|(|
 admin*
+admin*)((|password=*)
+admin*)((|Password=*)
 admin*)((|userPassword=*)
 admin*)((|userpassword=*)
 any))
+pwd
 pwd)
 pwd))
 void)(objectClass=void))(&objectClass=void
 x' or name()='username' or 'x'='y
+|
